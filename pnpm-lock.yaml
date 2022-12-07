@@ -5,9 +5,15 @@ specifiers:
   '@shy1118/eslint-config': ^1.0.5
   '@tiptap/core': 2.0.0-beta.205
   '@tiptap/extension-bold': 2.0.0-beta.205
+  '@tiptap/extension-code': 2.0.0-beta.205
   '@tiptap/extension-document': 2.0.0-beta.205
+  '@tiptap/extension-italic': 2.0.0-beta.205
   '@tiptap/extension-paragraph': 2.0.0-beta.205
+  '@tiptap/extension-strike': 2.0.0-beta.205
+  '@tiptap/extension-subscript': 2.0.0-beta.205
+  '@tiptap/extension-superscript': 2.0.0-beta.205
   '@tiptap/extension-text': 2.0.0-beta.205
+  '@tiptap/extension-underline': 2.0.0-beta.205
   '@tiptap/vue-3': 2.0.0-beta.205
   '@types/node': 18.8.0
   '@unocss/reset': ^0.45.30
@@ -35,9 +41,15 @@ specifiers:
 dependencies:
   '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
   '@tiptap/extension-bold': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-code': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-document': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-italic': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-paragraph': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-strike': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-subscript': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-superscript': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-text': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-underline': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/vue-3': 2.0.0-beta.205_h2lv7ymg7nduivqd3swnci7b6e
   '@vueuse/core': 9.6.0_vue@3.2.45
   vue: 3.2.45
@@ -423,6 +435,14 @@ packages:
       tippy.js: 6.3.7
     dev: false
 
+  /@tiptap/extension-code/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-F/YBt/pUZ91diNOSB29wFs6tiOvEu+aomU7Hvu86OVg1tOI0WuKjmDlWXkf8NRfodiHeR9cOJhVT9Z0kH5ib8A==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
   /@tiptap/extension-document/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
     resolution: {integrity: sha512-ANnO2ryaEq60wkWzteC2e0L4Wv/uExdukGU/GjyBSmXCDG9CLNkZcGBmv+f1rDzvR/2otmcV74XtrmsOaUGtVw==}
     peerDependencies:
@@ -444,6 +464,14 @@ packages:
       tippy.js: 6.3.7
     dev: false
 
+  /@tiptap/extension-italic/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-bdd5VJOWbeWa8OkvcdyFrUewpm2fre7QMBuwzvzTPSl2b9K8MFICmvRrn4SsYBOH5yKprDJ2ZB/ycXkL0o77Xg==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
   /@tiptap/extension-paragraph/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
     resolution: {integrity: sha512-NdGqxt5PeR7eBrQjKfIjcrNeruEMGifshSKARiqCYafeiSbUlk33fNrzobIMJjRi39bbYktEnON66EI9BBUBBA==}
     peerDependencies:
@@ -452,8 +480,40 @@ packages:
       '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
     dev: false
 
+  /@tiptap/extension-strike/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-nfLRCV/TwBgHH/u7ygl2C0hZBbm5ZB+14sG6KQGyWqyXa1Jlr25x7fbjrln1bgN439m9Hn+euNdYnmOlVO2o2A==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-subscript/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-UUu0QWEx+Z/JJAI2hzr7rgHVaR9R4Iyl/iPnN+x4H1Y8DH4cZLMjxA2qaRTEd0WO+thVOGznzuBZGkfx0cQSHw==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-superscript/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-cn0ln56rbl+qndX6RezBPQVoWND2PzAeIP1payO3v4VtGyUDPwFI4Hq0LMOW8JEJ5gvzM4inmaTL1k75FnHKtA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
   /@tiptap/extension-text/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
     resolution: {integrity: sha512-Tp5MoVhHGP8s24gD+EmM3RqLrQiLZvv4xvjlkozLZIMbZW6UX1yZANnpzZl74nWQ4W7plNOok42hnzWfenlq+g==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-underline/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-WKwjmajUoYGGsfmZSnyd8xyqoyJEoKU/hFRO/CnEZWeP2W0Nrf5qubLq5D1IjKeO9QjyFJzU7VskIfAsWpZm0Q==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.193
     dependencies:

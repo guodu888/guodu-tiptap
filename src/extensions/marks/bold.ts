@@ -1,9 +1,9 @@
 import type { BoldOptions } from '@tiptap/extension-bold'
 import Bold from '@tiptap/extension-bold'
 import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-export default Bold.extend<BoldOptions, any>({
+export default Bold.extend<BoldOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),

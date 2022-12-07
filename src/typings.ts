@@ -6,3 +6,7 @@ export interface MenuBtnView {
     [key: string]: any
   }
 }
+
+export interface MenuOptions {
+  menubar?: boolean
+}
