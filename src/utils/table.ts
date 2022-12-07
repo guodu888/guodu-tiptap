@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-12-03 19:40:28
  * @Description: table utils
  */
-// import { mergeCells, splitCell } from '@tiptap/prosemirror-tables'
+import { mergeCells, splitCell } from '@tiptap/prosemirror-tables'
 import type { EditorState } from 'prosemirror-state'
 export function isTableActive(state: EditorState) {
   const { selection, doc } = state
@@ -33,9 +33,9 @@ export function isTableActive(state: EditorState) {
 }
 
 export function enableMergeCells(state: EditorState) {
-  return isTableActive(state)
+  return isTableActive(state) && mergeCells(state)
 }
 
 export function enableSplitCell(state: EditorState) {
-  return isTableActive(state)
+  return isTableActive(state) && splitCell(state)
 }

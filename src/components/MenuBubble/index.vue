@@ -10,6 +10,7 @@ import type { Editor } from '@tiptap/vue-3'
 import { BubbleMenu } from '@tiptap/vue-3'
 import { computed, inject, ref } from 'vue'
 import { AllSelection, TextSelection } from 'prosemirror-state'
+import { CellSelection } from '@tiptap/prosemirror-tables'
 import LinkBubbleMenu from './LinkBubbleMenu.vue'
 import TableBubbleMenu from './TableBubbleMenu.vue'
 import type { MenuBtnView } from '~/typings'
@@ -21,7 +22,7 @@ const props = defineProps<{
 }>()
 const theme = inject('theme', 'light')
 const isLink = computed(() => (!props.editor) ? false : props.editor.isActive('link'))
-const isTable = computed(() => (!props.editor) ? false : props.editor.isActive('table'))
+const isTable = computed(() => (!props.editor) ? false : props.editor.state.selection instanceof CellSelection)
 const isText = computed(() => (!props.editor)
   ? false
   : (props.editor.state.selection instanceof TextSelection

@@ -1,5 +1,5 @@
 export { default as Text } from '@tiptap/extension-text'
-export { default as Document } from '@tiptap/extension-document'
+export { default as Document } from './document'
 export { default as Paragraph } from '@tiptap/extension-paragraph'
 // extensions
 export { default as History } from './history'
@@ -33,3 +33,4 @@ export { default as HorizontalRule } from './nodes/horizontal-rule'
 export { default as Image } from './nodes/image'
 export { default as Table } from './nodes/table'
 export { default as CodeBlockLowlight } from './nodes/code-block-lowlight'
+
