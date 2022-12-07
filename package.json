@@ -18,6 +18,7 @@
     "@tiptap/extension-bold": "2.0.0-beta.205",
     "@tiptap/extension-code": "2.0.0-beta.205",
     "@tiptap/extension-document": "2.0.0-beta.205",
+    "@tiptap/extension-highlight": "2.0.0-beta.205",
     "@tiptap/extension-history": "2.0.0-beta.205",
     "@tiptap/extension-italic": "2.0.0-beta.205",
     "@tiptap/extension-link": "2.0.0-beta.205",

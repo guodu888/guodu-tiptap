@@ -7,6 +7,7 @@ specifiers:
   '@tiptap/extension-bold': 2.0.0-beta.205
   '@tiptap/extension-code': 2.0.0-beta.205
   '@tiptap/extension-document': 2.0.0-beta.205
+  '@tiptap/extension-highlight': 2.0.0-beta.205
   '@tiptap/extension-history': 2.0.0-beta.205
   '@tiptap/extension-italic': 2.0.0-beta.205
   '@tiptap/extension-link': 2.0.0-beta.205
@@ -45,6 +46,7 @@ dependencies:
   '@tiptap/extension-bold': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-code': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-document': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-highlight': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-history': 2.0.0-beta.205_7cnuqeyjyxjmpszd2gl23ccp6a
   '@tiptap/extension-italic': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-link': 2.0.0-beta.205_ltvc2d5tgmjcmcewyu2ilerrzq
@@ -466,6 +468,14 @@ packages:
       prosemirror-state: 1.4.2
       prosemirror-view: 1.29.1
       tippy.js: 6.3.7
+    dev: false
+
+  /@tiptap/extension-highlight/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-EVQGBI3Jm0WIrkpNqTUaCDjovBA3H3WJp3qLY/T8s7leln7nbPTZRwK6fRmhsIpgp5VaWzLvYddYLDSqHIqO5w==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
     dev: false
 
   /@tiptap/extension-history/2.0.0-beta.205_7cnuqeyjyxjmpszd2gl23ccp6a:
