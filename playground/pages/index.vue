@@ -24,12 +24,15 @@ function toSayHello() {
   if (name)
     router.push(`/hello/${encodeURIComponent(name)}`)
 }
+const theme = computed(() => {
+  return isDark.value ? 'dark' : 'light'
+})
 </script>
 
 <template>
   <div>
     <p>Hello World!</p>
-    <GuoduTiptap v-model:content="content" :extensions="extensions" />
+    <GuoduTiptap v-model:content="content" :extensions="extensions" :theme="theme" />
     <Counter :initial="0" />
     <div>
       <input v-model="name" placeholder="What's your name?" class="px-4 py-2 w-100 text-center bg-transparent border border-rounded border-gray-200 dark:border-gray-700 outline-none active:outline-none" @keydown.enter="toSayHello">

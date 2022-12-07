@@ -43,9 +43,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%">
+  <div
+    class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%"
+    :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark' }"
+  >
     <MenuBar :editor="editor" />
-    <EditorContent :editor="editor" class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset" />
+    <EditorContent
+      :editor="editor"
+      class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset"
+    />
   </div>
 </template>
 
@@ -68,6 +74,11 @@ onMounted(() => {
 
   --hover-outline-color: #ffc83d;
 }
+
+.guodu-tiptap-editor-dark {
+  --extra-light-primary-color: rgba(232, 244, 254, 0.25);
+}
+
 .edit-content {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -75,7 +86,7 @@ onMounted(() => {
   overflow-x: auto;
   text-align: left;
 
-  > * {
+  >* {
     box-sizing: border-box;
   }
 
@@ -114,7 +125,7 @@ onMounted(() => {
     padding-top: 5px;
   }
 
-  li > p {
+  li>p {
     margin: 0;
 
     &:first-child::before {
@@ -130,7 +141,7 @@ onMounted(() => {
     }
   }
 
-  ul li > p {
+  ul li>p {
     &:first-child::before {
       content: '\2022';
       text-align: center;
@@ -140,7 +151,7 @@ onMounted(() => {
   ol {
     counter-reset: guodu-tiptap-counter;
 
-    li > p:first-child::before {
+    li>p:first-child::before {
       counter-increment: guodu-tiptap-counter;
     }
   }
@@ -248,7 +259,7 @@ onMounted(() => {
         padding-left: 10px;
         width: 100%;
 
-        > p {
+        >p {
           font-size: 16px;
 
           &:last-of-type {
@@ -258,7 +269,7 @@ onMounted(() => {
       }
 
       &[data-done='done'] {
-        > .todo-content > p {
+        >.todo-content>p {
           color: var(--primary-color);
           text-decoration: line-through;
         }
@@ -271,7 +282,10 @@ onMounted(() => {
     margin-bottom: 20px;
   }
 
-  @for $i from 1 through 7 /* max-indent */ {
+  @for $i from 1 through 7
+
+  /* max-indent */
+    {
     $indent-margin-base: 30px;
 
     *[data-indent='#{$i}'] {
@@ -352,6 +366,7 @@ onMounted(() => {
   border-radius: 3px;
   box-shadow: 0 0 0 3px #68cef8;
 }
+
 .ProseMirror p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
@@ -359,8 +374,9 @@ onMounted(() => {
   pointer-events: none;
   height: 0;
 }
+
 .ProseMirror {
-  > * + * {
+  >*+* {
     margin-top: 0.75em;
   }
 
@@ -449,7 +465,7 @@ onMounted(() => {
       box-sizing: border-box;
       position: relative;
 
-      > * {
+      >* {
         margin-bottom: 0;
       }
     }
@@ -464,7 +480,10 @@ onMounted(() => {
       z-index: 2;
       position: absolute;
       content: "";
-      left: 0; right: 0; top: 0; bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       background: rgba(200, 200, 255, 0.4);
       pointer-events: none;
     }
@@ -506,13 +525,13 @@ ul[data-type="taskList"] {
   li {
     display: flex;
 
-    > label {
+    >label {
       flex: 0 0 auto;
       margin-right: 0.5rem;
       user-select: none;
     }
 
-    > div {
+    >div {
       flex: 1 1 auto;
     }
   }
