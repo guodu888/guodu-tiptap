@@ -54,12 +54,12 @@ function handleClose() {
     <CommandButton :icon="props.icon" :is-active="isActive && props.active" :tooltip="props.tooltip" :command="() => handleShow()" />
     <template #content>
       <div class="w-50 p-2 flex flex-col items-start">
-        <p class="text-center w-full font-bold text-lg">
+        <p class="text-center w-full font-bold text-lg leading-1">
           添加/修改链接
         </p>
         <div class="flex w-full justify-center items-center my-1">
           <span class="w-4em">地址:</span>
-          <input v-model="form.href" type="text" class="border-1 p-1 w-full rounded">
+          <input v-model="form.href" placeholder="请输入链接地址" type="text" class="border-1 p-1 w-full rounded">
         </div>
         <div class="flex w-full justify-center items-center my-1">
           <input v-model="form.openInNewTab" type="checkbox" class="mx-2">在新标签页打开

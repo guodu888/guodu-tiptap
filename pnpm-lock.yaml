@@ -12,6 +12,8 @@ specifiers:
   '@tiptap/extension-heading': 2.0.0-beta.205
   '@tiptap/extension-highlight': 2.0.0-beta.205
   '@tiptap/extension-history': 2.0.0-beta.205
+  '@tiptap/extension-horizontal-rule': 2.0.0-beta.205
+  '@tiptap/extension-image': 2.0.0-beta.205
   '@tiptap/extension-italic': 2.0.0-beta.205
   '@tiptap/extension-link': 2.0.0-beta.205
   '@tiptap/extension-list-item': 2.0.0-beta.205
@@ -58,6 +60,8 @@ dependencies:
   '@tiptap/extension-heading': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-highlight': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-history': 2.0.0-beta.205_7cnuqeyjyxjmpszd2gl23ccp6a
+  '@tiptap/extension-horizontal-rule': 2.0.0-beta.205_jnmwjziktttm7clxu2pjubbruu
+  '@tiptap/extension-image': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-italic': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-link': 2.0.0-beta.205_ltvc2d5tgmjcmcewyu2ilerrzq
   '@tiptap/extension-list-item': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
@@ -524,6 +528,24 @@ packages:
     dependencies:
       '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
       prosemirror-history: 1.3.0
+    dev: false
+
+  /@tiptap/extension-horizontal-rule/2.0.0-beta.205_jnmwjziktttm7clxu2pjubbruu:
+    resolution: {integrity: sha512-68rDOHXxykqGd/PujuPvplNnOIWeOY8KRjkfA81xUJwCFNJnBDzE91beZnKly3AvCCdpe8YeW9+RyjqQq+zCbQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+      prosemirror-state: ^1.4.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+      prosemirror-state: 1.4.2
+    dev: false
+
+  /@tiptap/extension-image/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-wsugHfFVyD6TU/5Ij9T08zN9YHZILR7fc5p49zUU2V6RjNqwjaAqeMuyifu7QinvuUoo7dEe4HvI9zgfDT+aYQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
     dev: false
 
   /@tiptap/extension-italic/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
