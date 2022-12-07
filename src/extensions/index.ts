@@ -18,3 +18,6 @@ export { default as Highlight } from './marks/highlight'
 
 // Nodes
 export { default as Heading } from './nodes/heading'
+export { default as BubbetList } from './nodes/bullet-list'
+export { default as OrderedList } from './nodes/ordered-list'
+export { default as TaskList } from './nodes/task-list'
