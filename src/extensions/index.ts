@@ -15,3 +15,6 @@ export { default as Superscript } from './marks/superscript'
 export { default as Underline } from './marks/underline'
 export { default as Link } from './marks/link'
 export { default as Highlight } from './marks/highlight'
+
+// Nodes
+export { default as Heading } from './nodes/heading'

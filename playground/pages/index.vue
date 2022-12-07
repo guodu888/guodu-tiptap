@@ -6,13 +6,13 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Bold, Code, Document, Emphasis, GuoduTiptap, Highlight, History, Italic, Link, Paragraph, Strike, Subscript, Superscript, Text, Underline } from 'guodu-tiptap'
+import { Bold, Code, Document, Emphasis, GuoduTiptap, Heading, Highlight, History, Italic, Link, Paragraph, Strike, Subscript, Superscript, Text, Underline } from 'guodu-tiptap'
 
 const extensions = [
   Document,
   Paragraph,
   Text,
-  History, Link, Highlight,
+  History, Link, Highlight, Heading.configure({ levels: [1, 2, 3] }),
   Bold, Code, Emphasis, Italic, Strike, Subscript, Superscript, Underline,
 ]
 
