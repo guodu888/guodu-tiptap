@@ -9,6 +9,7 @@ specifiers:
   '@tiptap/extension-document': 2.0.0-beta.205
   '@tiptap/extension-history': 2.0.0-beta.205
   '@tiptap/extension-italic': 2.0.0-beta.205
+  '@tiptap/extension-link': 2.0.0-beta.205
   '@tiptap/extension-paragraph': 2.0.0-beta.205
   '@tiptap/extension-strike': 2.0.0-beta.205
   '@tiptap/extension-subscript': 2.0.0-beta.205
@@ -46,6 +47,7 @@ dependencies:
   '@tiptap/extension-document': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-history': 2.0.0-beta.205_7cnuqeyjyxjmpszd2gl23ccp6a
   '@tiptap/extension-italic': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-link': 2.0.0-beta.205_ltvc2d5tgmjcmcewyu2ilerrzq
   '@tiptap/extension-paragraph': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-strike': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-subscript': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
@@ -482,6 +484,19 @@ packages:
       '@tiptap/core': ^2.0.0-beta.193
     dependencies:
       '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-link/2.0.0-beta.205_ltvc2d5tgmjcmcewyu2ilerrzq:
+    resolution: {integrity: sha512-9Vrr6uJk7E8AZOIuCUim5mFJM7xLgP8bxkuOLYEW3zxDoE3Gimj+ocli6+DqLrvwSsChj5N4EeN4+2YdJyISeA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+      prosemirror-model: ^1.18.1
+      prosemirror-state: ^1.4.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+      linkifyjs: 3.0.5
+      prosemirror-model: 1.18.3
+      prosemirror-state: 1.4.2
     dev: false
 
   /@tiptap/extension-paragraph/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
@@ -3030,6 +3045,10 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
+
+  /linkifyjs/3.0.5:
+    resolution: {integrity: sha512-1Y9XQH65eQKA9p2xtk+zxvnTeQBG7rdAXSkUG97DmuI/Xhji9uaUzaWxRj6rf9YC0v8KKHkxav7tnLX82Sz5Fg==}
+    dev: false
 
   /local-pkg/0.4.2:
     resolution: {integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==}

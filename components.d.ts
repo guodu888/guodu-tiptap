@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AddLinkCommandButton: typeof import('./src/components/MenuCommands/AddLinkCommandButton.vue')['default']
     CommandButton: typeof import('./src/components/MenuCommands/CommandButton.vue')['default']
     Counter: typeof import('./playground/components/Counter.vue')['default']
     Footer: typeof import('./playground/components/Footer.vue')['default']

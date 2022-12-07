@@ -20,6 +20,7 @@
     "@tiptap/extension-document": "2.0.0-beta.205",
     "@tiptap/extension-history": "2.0.0-beta.205",
     "@tiptap/extension-italic": "2.0.0-beta.205",
+    "@tiptap/extension-link": "2.0.0-beta.205",
     "@tiptap/extension-paragraph": "2.0.0-beta.205",
     "@tiptap/extension-strike": "2.0.0-beta.205",
     "@tiptap/extension-subscript": "2.0.0-beta.205",
