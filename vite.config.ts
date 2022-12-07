@@ -5,6 +5,7 @@ import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
+import svgLoader from 'vite-svg-loader'
 
 export default defineConfig({
   resolve: {
@@ -18,7 +19,7 @@ export default defineConfig({
     Vue({
       reactivityTransform: true,
     }),
-
+    svgLoader(),
     Pages({
       dirs: ['playground/pages'],
     }),
@@ -32,12 +33,15 @@ export default defineConfig({
         '@vueuse/core',
       ],
       dts: true,
+      dirs: [
+        './playground/composables',
+      ],
       vueTemplate: true,
     }),
 
     // https://github.com/antfu/vite-plugin-components
     Components({
-      dirs: ['playground/components'],
+      dirs: ['playground/components', 'src/components'],
       dts: true,
     }),
 

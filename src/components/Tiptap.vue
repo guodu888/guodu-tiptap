@@ -44,6 +44,7 @@ onMounted(() => {
 
 <template>
   <div class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%">
+    <MenuBar :editor="editor" />
     <EditorContent :editor="editor" class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset" />
   </div>
 </template>
