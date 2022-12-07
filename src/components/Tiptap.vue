@@ -48,6 +48,7 @@ onMounted(() => {
     :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark' }"
   >
     <MenuBar :editor="editor" />
+    <MenuBubble :editor="editor" />
     <EditorContent
       :editor="editor"
       class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset"

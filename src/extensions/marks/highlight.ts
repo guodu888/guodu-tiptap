@@ -5,12 +5,13 @@
  * @LastEditTime: 2022-11-30 15:25:30
  * @Description: Highlight
  */
+import type { HighlightOptions } from '@tiptap/extension-highlight'
 import Highlight from '@tiptap/extension-highlight'
 import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
 import HighlightPopover from '~/components/MenuCommands/HighlightPopover.vue'
 
-export default Highlight.extend({
+export default Highlight.extend<HighlightOptions & MenuOptions, any>({
   exitable: true,
   addOptions() {
     return {

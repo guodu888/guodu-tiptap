@@ -9,4 +9,5 @@ export interface MenuBtnView {
 
 export interface MenuOptions {
   menubar?: boolean
+  bubble?: boolean
 }

@@ -12,8 +12,8 @@ const extensions = [
   Document, TextAlign.configure({ types: ['paragraph'] }),
   Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear,
   Text, BubbetList, OrderedList, TaskList, Blockquote, HorizontalRule,
-  History, Link, Highlight, Heading.configure({ levels: [1, 2, 3] }),
-  Bold, Code, Emphasis, Italic, Strike, Subscript, Superscript, Underline,
+  History, Link.configure({ bubble: true }), Highlight.configure({ bubble: true }), Heading.configure({ levels: [1, 2, 3] }),
+  Bold.configure({ bubble: true }), Code.configure({ bubble: true }), Emphasis, Italic.configure({ bubble: true }), Strike.configure({ bubble: true }), Subscript, Superscript, Underline,
 ]
 
 const content = ref('<p><img src=\"https://shy-nav.shaohang.xin/nav-icons/yuque.svg\" width=\"200\" data-display=\"inline\"></p>')
