@@ -31,9 +31,9 @@ export default Extension.create({
       link: 'unsetLink',
       // fontFamily: 'unsetFontFamily',
       // fontSize: 'unsetFontSize',
-      // color: 'unsetColor',
+      color: 'unsetColor',
       highlight: 'unsetHighlight',
-      // textAlign: 'unsetTextAlign',
+      textAlign: 'unsetTextAlign',
       // lineHeight: 'unsetLineHeight',
     }
 

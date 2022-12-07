@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     Counter: typeof import('./playground/components/Counter.vue')['default']
     CreateTablePopover: typeof import('./src/components/MenuCommands/table/CreateTablePopover.vue')['default']
     EditImageCommadButton: typeof import('./src/components/MenuCommands/image/EditImageCommadButton.vue')['default']
+    FontColorPopover: typeof import('./src/components/MenuCommands/FontColorPopover.vue')['default']
     Footer: typeof import('./playground/components/Footer.vue')['default']
     GuoduIcon: typeof import('./src/components/GuoduIcon.vue')['default']
     HeadingCommandButton: typeof import('./src/components/MenuCommands/HeadingCommandButton.vue')['default']
