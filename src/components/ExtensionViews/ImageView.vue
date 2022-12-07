@@ -162,27 +162,16 @@ function updateAttrs(e: { alt: string; height?: number | null; width?: number | 
 <template>
   <NodeViewWrapper as="span" class="inline-block my-2 max-w-full" :class="`image-view--${props.node.attrs.display}`">
     <Tippy ref="tippyRef" tag="div" :theme="theme" :z-index="99999" class="inline-block" trigger="manual" interactive>
-      <div
-        ref="imageViewRef"
-        class="h-outline clear-both inline-block max-w-full relative cursor-pointer"
-      >
+      <div ref="imageViewRef" class="h-outline clear-both inline-block max-w-full relative cursor-pointer">
         <img
-          :src="props.node.attrs.src"
-          :title="props.node.attrs.title"
-          :alt="props.node.attrs.alt"
-          :width="props.node.attrs.width"
-          :height="props.node.attrs.height"
-          class="m-0"
-          @click="selectImage"
+          :src="props.node.attrs.src" :title="props.node.attrs.title" :alt="props.node.attrs.alt"
+          :width="props.node.attrs.width" :height="props.node.attrs.height" class="m-0" @click="selectImage"
         >
 
         <div v-if="editor?.isEditable" v-show="selected || resizing" class="image-resizer">
           <span
-            v-for="direction in resizeDirections"
-            :key="direction"
-            :class="`image-resizer__handler--${direction}`"
-            class="image-resizer__handler"
-            @mousedown="onMouseDown($event, direction)"
+            v-for="direction in resizeDirections" :key="direction" :class="`image-resizer__handler--${direction}`"
+            class="image-resizer__handler" @mousedown="onMouseDown($event, direction)"
           />
         </div>
       </div>
@@ -198,6 +187,39 @@ function updateAttrs(e: { alt: string; height?: number | null; width?: number | 
 </template>
 
 <style lang="scss">
+.image-view {
+  $root: &;
+
+  display: inline-block;
+  float: none;
+  line-height: 0;
+  margin: 12px 0;
+  max-width: 100%;
+  user-select: none;
+  vertical-align: baseline;
+
+  &--inline {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  &--block {
+    display: block;
+  }
+
+  &--left {
+    float: left;
+    margin-left: 0;
+    margin-right: 12px;
+  }
+
+  &--right {
+    float: right;
+    margin-left: 12px;
+    margin-right: 0;
+  }
+}
+
 .image-resizer {
   border: 1px solid var(--primary-color);
   height: 100%;
