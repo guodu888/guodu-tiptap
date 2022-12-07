@@ -3,6 +3,7 @@ export { default as Document } from '@tiptap/extension-document'
 export { default as Paragraph } from '@tiptap/extension-paragraph'
 // extensions
 export { default as History } from './history'
+export { default as Gapcursor } from './gapcursor'
 
 // marks
 export { default as Bold } from './marks/bold'
@@ -24,3 +25,4 @@ export { default as TaskList } from './nodes/task-list'
 export { default as Blockquote } from './nodes/blockquote'
 export { default as HorizontalRule } from './nodes/horizontal-rule'
 export { default as Image } from './nodes/image'
+export { default as Table } from './nodes/table'

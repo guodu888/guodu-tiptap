@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     AddLinkCommandButton: typeof import('./src/components/MenuCommands/AddLinkCommandButton.vue')['default']
     CommandButton: typeof import('./src/components/MenuCommands/CommandButton.vue')['default']
     Counter: typeof import('./playground/components/Counter.vue')['default']
+    CreateTablePopover: typeof import('./src/components/MenuCommands/table/CreateTablePopover.vue')['default']
     EditImageCommadButton: typeof import('./src/components/MenuCommands/image/EditImageCommadButton.vue')['default']
     Footer: typeof import('./playground/components/Footer.vue')['default']
     GuoduIcon: typeof import('./src/components/GuoduIcon.vue')['default']
@@ -21,6 +22,7 @@ declare module '@vue/runtime-core' {
     MenuBar: typeof import('./src/components/MenuBar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TablePopover: typeof import('./src/components/MenuCommands/TablePopover.vue')['default']
     Tiptap: typeof import('./src/components/Tiptap.vue')['default']
   }
 }

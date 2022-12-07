@@ -473,7 +473,7 @@ onMounted(() => {
     th {
       font-weight: bold;
       text-align: left;
-      background-color: #f1f3f5;
+      background-color: rgba(239,241,243,0.3);
     }
 
     .selectedCell:after {

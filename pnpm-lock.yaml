@@ -9,6 +9,7 @@ specifiers:
   '@tiptap/extension-bullet-list': 2.0.0-beta.205
   '@tiptap/extension-code': 2.0.0-beta.205
   '@tiptap/extension-document': 2.0.0-beta.205
+  '@tiptap/extension-gapcursor': 2.0.0-beta.205
   '@tiptap/extension-heading': 2.0.0-beta.205
   '@tiptap/extension-highlight': 2.0.0-beta.205
   '@tiptap/extension-history': 2.0.0-beta.205
@@ -22,6 +23,10 @@ specifiers:
   '@tiptap/extension-strike': 2.0.0-beta.205
   '@tiptap/extension-subscript': 2.0.0-beta.205
   '@tiptap/extension-superscript': 2.0.0-beta.205
+  '@tiptap/extension-table': 2.0.0-beta.205
+  '@tiptap/extension-table-cell': 2.0.0-beta.205
+  '@tiptap/extension-table-header': 2.0.0-beta.205
+  '@tiptap/extension-table-row': 2.0.0-beta.205
   '@tiptap/extension-task-item': 2.0.0-beta.205
   '@tiptap/extension-task-list': 2.0.0-beta.205
   '@tiptap/extension-text': 2.0.0-beta.205
@@ -57,6 +62,7 @@ dependencies:
   '@tiptap/extension-bullet-list': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-code': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-document': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-gapcursor': 2.0.0-beta.205_cjvuv2ycubadndwfmu2ijeskre
   '@tiptap/extension-heading': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-highlight': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-history': 2.0.0-beta.205_7cnuqeyjyxjmpszd2gl23ccp6a
@@ -70,6 +76,10 @@ dependencies:
   '@tiptap/extension-strike': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-subscript': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-superscript': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-table': 2.0.0-beta.205_ssm3iihxtob5ad3xcqopgqs4oy
+  '@tiptap/extension-table-cell': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-table-header': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
+  '@tiptap/extension-table-row': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-task-item': 2.0.0-beta.205_qw674dtrcywogvah35xjyevg4y
   '@tiptap/extension-task-list': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-text': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
@@ -331,7 +341,7 @@ packages:
       eslint-plugin-promise: 6.1.1_eslint@8.29.0
       eslint-plugin-shy: 1.0.5_s5ps7njkmjlaqajutnox5ntcla
       eslint-plugin-unicorn: 43.0.2_eslint@8.29.0
-      eslint-plugin-yml: 1.2.0_eslint@8.29.0
+      eslint-plugin-yml: 1.3.0_eslint@8.29.0
       jsonc-eslint-parser: 2.1.0
       yaml-eslint-parser: 1.1.0
     transitivePeerDependencies:
@@ -407,7 +417,7 @@ packages:
       eslint-plugin-promise: 6.1.1_eslint@8.29.0
       eslint-plugin-unicorn: 43.0.2_eslint@8.29.0
       eslint-plugin-vue: 9.8.0_eslint@8.29.0
-      eslint-plugin-yml: 1.2.0_eslint@8.29.0
+      eslint-plugin-yml: 1.3.0_eslint@8.29.0
       jsonc-eslint-parser: 2.1.0
       yaml-eslint-parser: 1.1.0
     transitivePeerDependencies:
@@ -502,6 +512,16 @@ packages:
       prosemirror-state: 1.4.2
       prosemirror-view: 1.29.1
       tippy.js: 6.3.7
+    dev: false
+
+  /@tiptap/extension-gapcursor/2.0.0-beta.205_cjvuv2ycubadndwfmu2ijeskre:
+    resolution: {integrity: sha512-2tH3+yjmQMwdFGze8J1G1j6yiJgA4zE4iHjqlZtyLVdB1jLoIRVrkIgWhSKKIoANQUBPSGLGYVndQYxrRs1gSQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+      prosemirror-gapcursor: ^1.3.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+      prosemirror-gapcursor: 1.3.1
     dev: false
 
   /@tiptap/extension-heading/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
@@ -615,6 +635,44 @@ packages:
       '@tiptap/core': ^2.0.0-beta.193
     dependencies:
       '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-table-cell/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-dNjm9OFuJZySIrX7q+SBN+sbonVU87nJqs/KBVXzJmC/wWciEUjxsuu2+MftOuJLzJ/V4Zp70bRYe1QzaN2tbg==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-table-header/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-J5DDVDQmUYWCCKUxtJfndaHMOe4tYcW71wll7Oo86FKNFe06MwF4lD45eq68o1/ZmdJgoSy9P+ckI4n2doifEQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-table-row/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-IbFAgzu+Q/IGO47ThRk7g/J/NWG+CfXO98wSOooh9bLhMkkYsXIApdZnvYCo35HY1jNzaYzihliHYom04QuYbA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+    dev: false
+
+  /@tiptap/extension-table/2.0.0-beta.205_ssm3iihxtob5ad3xcqopgqs4oy:
+    resolution: {integrity: sha512-qx/WsDJUH0fSFmaIJMW99Gw+sonu/DFi9F3Mc2oYd8DYeEfWgrP45ndnLjbwpnaXhiWp3+Kmo4O4N0xflbJy4w==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.193
+      prosemirror-model: ^1.18.1
+      prosemirror-state: ^1.4.1
+      prosemirror-view: ^1.28.2
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+      prosemirror-model: 1.18.3
+      prosemirror-state: 1.4.2
+      prosemirror-view: 1.29.1
     dev: false
 
   /@tiptap/extension-task-item/2.0.0-beta.205_qw674dtrcywogvah35xjyevg4y:
@@ -2297,8 +2355,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-yml/1.2.0_eslint@8.29.0:
-    resolution: {integrity: sha512-v0jAU/F5SJg28zkpxwGpY04eGZMWFP6os8u2qaEAIRjSH2GqrNl0yBR5+sMHLU/026kAduxVbvLSqmT3Mu3O0g==}
+  /eslint-plugin-yml/1.3.0_eslint@8.29.0:
+    resolution: {integrity: sha512-TEkIaxutVPRZMRc0zOVptP/vmrf1td/9woUAiKII4kRLJLWWUCz1CYM98NsAfeOrVejFBFhHCSwOp+C1TqmtRg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -3670,6 +3728,15 @@ packages:
       prosemirror-model: 1.18.3
       prosemirror-state: 1.4.2
       prosemirror-transform: 1.7.0
+    dev: false
+
+  /prosemirror-gapcursor/1.3.1:
+    resolution: {integrity: sha512-GKTeE7ZoMsx5uVfc51/ouwMFPq0o8YrZ7Hx4jTF4EeGbXxBveUV8CGv46mSHuBBeXGmvu50guoV2kSnOeZZnUA==}
+    dependencies:
+      prosemirror-keymap: 1.2.0
+      prosemirror-model: 1.18.3
+      prosemirror-state: 1.4.2
+      prosemirror-view: 1.29.1
     dev: false
 
   /prosemirror-history/1.3.0:
