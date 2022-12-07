@@ -6,6 +6,16 @@
  * @Description: index page
 -->
 <script setup lang="ts">
+import { Document, GuoduTiptap, Paragraph, Text } from 'guodu-tiptap'
+
+const extensions = [
+  Document,
+  Paragraph,
+  Text,
+]
+
+const content = ref('')
+
 const name = $ref('')
 
 const router = useRouter()
@@ -18,6 +28,7 @@ function toSayHello() {
 <template>
   <div>
     <p>Hello World!</p>
+    <GuoduTiptap v-model:content="content" :extensions="extensions" />
     <Counter :initial="0" />
     <div>
       <input v-model="name" placeholder="What's your name?" class="px-4 py-2 w-100 text-center bg-transparent border border-rounded border-gray-200 dark:border-gray-700 outline-none active:outline-none" @keydown.enter="toSayHello">

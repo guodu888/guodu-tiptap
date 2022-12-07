@@ -6,6 +6,8 @@ const plugin: Plugin = {
   },
 }
 
+export * from './extensions'
+
 export { GuoduTiptap }
 
 export default plugin
