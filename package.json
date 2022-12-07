@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@tiptap/core": "2.0.0-beta.205",
+    "@tiptap/extension-bold": "2.0.0-beta.205",
     "@tiptap/extension-document": "2.0.0-beta.205",
     "@tiptap/extension-paragraph": "2.0.0-beta.205",
     "@tiptap/extension-text": "2.0.0-beta.205",
@@ -34,6 +35,7 @@
     "eslint": "^8.29.0",
     "jsdom": "^20.0.3",
     "pnpm": "^7.18.1",
+    "sass": "^1.56.1",
     "typescript": "^4.9.3",
     "unocss": "^0.45.30",
     "unplugin-auto-import": "^0.11.5",

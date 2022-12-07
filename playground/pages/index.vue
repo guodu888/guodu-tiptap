@@ -6,12 +6,13 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Document, GuoduTiptap, Paragraph, Text } from 'guodu-tiptap'
+import { Bold, Document, GuoduTiptap, Paragraph, Text } from 'guodu-tiptap'
 
 const extensions = [
   Document,
   Paragraph,
   Text,
+  Bold,
 ]
 
 const content = ref('')
