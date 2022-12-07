@@ -4,6 +4,11 @@ export { default as Paragraph } from '@tiptap/extension-paragraph'
 // extensions
 export { default as History } from './history'
 export { default as Gapcursor } from './gapcursor'
+export { default as Dropcursor } from './dropcursor'
+export { default as Focus } from './focus'
+export { default as Placeholder } from './placeholder'
+export { default as FormatClear } from './format-clear'
+export { default as TextAlign } from './text-align'
 
 // marks
 export { default as Bold } from './marks/bold'
