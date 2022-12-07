@@ -6,10 +6,10 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Blockquote, Bold, BubbetList, Code, Color, Document, Dropcursor, Emphasis, Focus, FormatClear, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, Italic, Link, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from 'guodu-tiptap'
+import { Blockquote, Bold, BubbetList, Code, CodeBlockLowlight, Color, Document, Dropcursor, Emphasis, Focus, FormatClear, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, Italic, Link, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from 'guodu-tiptap'
 
 const extensions = [
-  Document, TextAlign.configure({ types: ['paragraph'] }), Color,
+  Document, TextAlign.configure({ types: ['paragraph'] }), Color, CodeBlockLowlight,
   Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear,
   Text, BubbetList, OrderedList, TaskList, Blockquote, HorizontalRule,
   History, Link.configure({ bubble: true }), Highlight.configure({ bubble: true }), Heading.configure({ levels: [1, 2, 3] }),
