@@ -4,6 +4,7 @@ specifiers:
   '@iconify-json/carbon': ^1.1.11
   '@shy1118/eslint-config': ^1.0.5
   '@tiptap/core': 2.0.0-beta.205
+  '@tiptap/extension-blockquote': 2.0.0-beta.205
   '@tiptap/extension-bold': 2.0.0-beta.205
   '@tiptap/extension-bullet-list': 2.0.0-beta.205
   '@tiptap/extension-code': 2.0.0-beta.205
@@ -49,6 +50,7 @@ specifiers:
 
 dependencies:
   '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
+  '@tiptap/extension-blockquote': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-bold': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-bullet-list': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
   '@tiptap/extension-code': 2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i
@@ -429,6 +431,14 @@ packages:
       prosemirror-state: 1.4.2
       prosemirror-transform: 1.7.0
       prosemirror-view: 1.29.1
+    dev: false
+
+  /@tiptap/extension-blockquote/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
+    resolution: {integrity: sha512-3FDSHe7bLok1+6Pq4T5zVaml4o/ZrtoS8i9dIcPYmFJ1+LxDH0IiBHkTI/rr0wMhkZoo/MTZ4DG17Rw0sU9OsA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.205_rd5pjtxohzfgv2zee3iufpqkay
     dev: false
 
   /@tiptap/extension-bold/2.0.0-beta.205_hb6j6qanbkcv3b4w5eczau643i:
