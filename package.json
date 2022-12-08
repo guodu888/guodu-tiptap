@@ -1,13 +1,12 @@
 {
   "name": "guodu-tiptap",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "packageManager": "pnpm@7.4.0",
   "description": "A WYSIWYG rich-text editor using tiptap",
   "author": "shy1118",
   "license": "MIT",
   "main": "./lib/guodu-tiptap.umd.js",
-  "module": "./lib/guodu-tiptap.es.js",
+  "module": "./lib/guodu-tiptap.mjs",
   "files": [
     "lib/*"
   ],
