@@ -65,6 +65,7 @@
     "highlight.js": "^11.7.0",
     "lowlight": "^2.8.0",
     "mammoth": "^1.5.1",
+    "prosemirror-commands": "^1.5.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vue-tippy": "6.0.0-alpha.65"

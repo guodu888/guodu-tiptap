@@ -55,6 +55,7 @@ specifiers:
   lowlight: ^2.8.0
   mammoth: ^1.5.1
   pnpm: ^7.18.1
+  prosemirror-commands: ^1.5.0
   sass: ^1.56.1
   typescript: ^4.9.3
   unocss: ^0.45.30
@@ -114,6 +115,7 @@ dependencies:
   highlight.js: 11.7.0
   lowlight: 2.8.0
   mammoth: 1.5.1
+  prosemirror-commands: 1.5.0
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
   vue-tippy: 6.0.0-alpha.65_vue@3.2.45
