@@ -34,7 +34,7 @@ export default Image.extend({
     return {
       ...this.parent?.(),
       width: {
-        default: DEFAULT_IMAGE_WIDTH,
+        default: null,
         parseHTML: (element) => {
           const width = element.style.width || element.getAttribute('width') || null
           return width == null ? null : parseInt(width, 10)
