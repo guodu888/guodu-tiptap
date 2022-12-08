@@ -64,7 +64,7 @@ function handleImport(e: any) {
     }
     mammoth
       .convertToHtml({ arrayBuffer }, options)
-      .then((e) => {
+      .then((e: any) => {
         const newV = e.value.replace(/&amp;nbsp;/g, '&nbsp;')
         // 修复组合题和【】不换行
         const lineFeed = newV.replace(/<br \/>【】/g, '</p><p>【】')
