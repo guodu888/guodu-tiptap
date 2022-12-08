@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     HighlightPopover: typeof import('./src/components/MenuCommands/HighlightPopover.vue')['default']
     ImageDisplayCommandButton: typeof import('./src/components/MenuCommands/image/ImageDisplayCommandButton.vue')['default']
     ImageView: typeof import('./src/components/ExtensionViews/ImageView.vue')['default']
+    ImportWordCommandButton: typeof import('./src/components/MenuCommands/ImportWordCommandButton.vue')['default']
     InsertImageCommandButton: typeof import('./src/components/MenuCommands/InsertImageCommandButton.vue')['default']
     LinkBubbleMenu: typeof import('./src/components/MenuBubble/LinkBubbleMenu.vue')['default']
     MenuBar: typeof import('./src/components/MenuBar/index.vue')['default']
