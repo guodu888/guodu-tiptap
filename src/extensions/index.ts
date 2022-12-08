@@ -11,6 +11,7 @@ export { default as FormatClear } from './format-clear'
 export { default as TextAlign } from './text-align'
 export { default as Color } from './color'
 export { default as Fullscreen } from './fullscreen'
+export { default as Commands } from './commands'
 
 // marks
 export { default as Bold } from './marks/bold'

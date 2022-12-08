@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AddLinkCommandButton: typeof import('./src/components/MenuCommands/AddLinkCommandButton.vue')['default']
     CommandButton: typeof import('./src/components/MenuCommands/CommandButton.vue')['default']
+    CommandsList: typeof import('./src/components/ExtensionViews/CommandsList.vue')['default']
     Counter: typeof import('./playground/components/Counter.vue')['default']
     CreateTablePopover: typeof import('./src/components/MenuCommands/table/CreateTablePopover.vue')['default']
     EditImageCommadButton: typeof import('./src/components/MenuCommands/image/EditImageCommadButton.vue')['default']
