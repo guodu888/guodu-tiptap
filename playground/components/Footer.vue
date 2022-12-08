@@ -8,15 +8,15 @@
 <script lang="ts" setup></script>
 
 <template>
-  <nav text-xl mt-6 inline-flex gap-2>
-    <button icon-btn @click="toggleDark()">
+  <nav class="text-xl mt-6 inline-flex gap-2 w-full flex items-center justify-center">
+    <div icon-btn @click="toggleDark()">
       <div dark:i-carbon-moon i-carbon-sun />
-    </button>
+    </div>
 
     <a
       icon-btn i-carbon-logo-github
       rel="noreferrer"
-      href="https://github.com/shy1118999/shy-vue-template"
+      href="https://github.com/shy1118999/guodu-tiptap"
       target="_blank"
       title="GitHub"
     />

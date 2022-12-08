@@ -6,7 +6,7 @@
  * @Description: App
 -->
 <template>
-  <main p="x-4 y-10" text="center gray-700 dark:gray-200">
+  <main class="p-3">
     <router-view />
     <Footer />
   </main>
