@@ -40,23 +40,33 @@ watchEffect(() => {
 onMounted(() => {
   emits('update:content', editor.value?.getHTML())
 })
+
+const isFullscreen = ref(false)
+const toggleFullscreen = (val: boolean) => {
+  isFullscreen.value = val
+}
+provide('isFullscreen', isFullscreen)
+provide('toggleFullscreen', toggleFullscreen)
 </script>
 
 <template>
   <div
     class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%"
-    :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark' }"
+    :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark', 'guodu-tiptap-editor-fullscreen': isFullscreen }"
   >
     <MenuBar :editor="editor" />
     <MenuBubble :editor="editor" />
     <EditorContent
       :editor="editor"
-      class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset"
+      class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset overflow-auto"
     />
   </div>
 </template>
 
 <style lang="scss">
+.ProseMirror {
+  height: 100%;
+}
 .guodu-tiptap-editor {
   --black-color: #000;
   --white-color: #fff;
@@ -74,10 +84,25 @@ onMounted(() => {
   --lighter-border-color: #ebeef5;
 
   --hover-outline-color: #ffc83d;
+  background-color: var(--white-color);
 }
 
 .guodu-tiptap-editor-dark {
   --extra-light-primary-color: rgba(232, 244, 254, 0.25);
+  background-color: var(--black-color);
+}
+
+.guodu-tiptap-editor-fullscreen {
+  border-radius: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  left: 0 !important;
+  margin: 0 !important;
+  position: fixed !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 500 !important;
 }
 
 .edit-content {
@@ -474,7 +499,7 @@ onMounted(() => {
     th {
       font-weight: bold;
       text-align: left;
-      background-color: rgba(239,241,243,0.3);
+      background-color: rgba(239, 241, 243, 0.3);
     }
 
     .selectedCell:after {

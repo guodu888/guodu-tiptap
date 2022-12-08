@@ -6,17 +6,17 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Blockquote, Bold, BubbetList, Code, CodeBlockLowlight, Color, Document, Dropcursor, Emphasis, Focus, FormatClear, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, Italic, Link, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from 'guodu-tiptap'
+import { Blockquote, Bold, BubbetList, Code, CodeBlockLowlight, Color, Document, Dropcursor, Emphasis, Focus, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, Italic, Link, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from 'guodu-tiptap'
 
 const extensions = [
   Document.configure({ title: true }), TextAlign.configure({ types: ['paragraph'] }), Color, CodeBlockLowlight,
-  Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear,
+  Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear, Fullscreen,
   Text, BubbetList, OrderedList, TaskList, Blockquote, HorizontalRule,
   History, Link.configure({ bubble: true }), Highlight.configure({ bubble: true }), Heading.configure({ levels: [1, 2, 3] }),
   Bold.configure({ bubble: true }), Code.configure({ bubble: true }), Emphasis, Italic.configure({ bubble: true }), Strike.configure({ bubble: true }), Subscript, Superscript, Underline,
 ]
 
-const content = ref('<p><img src=\"https://shy-nav.shaohang.xin/nav-icons/yuque.svg\" width=\"200\" data-display=\"inline\"></p>')
+const content = ref('<h1>欢迎使用</h1><p><img src=\"https://shy-nav.shaohang.xin/nav-icons/yuque.svg\" width=\"200\" data-display=\"inline\"></p>')
 
 const name = $ref('')
 

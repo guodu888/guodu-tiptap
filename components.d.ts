@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     EditImageCommadButton: typeof import('./src/components/MenuCommands/image/EditImageCommadButton.vue')['default']
     FontColorPopover: typeof import('./src/components/MenuCommands/FontColorPopover.vue')['default']
     Footer: typeof import('./playground/components/Footer.vue')['default']
+    FullscreenCommandButton: typeof import('./src/components/MenuCommands/FullscreenCommandButton.vue')['default']
     GuoduIcon: typeof import('./src/components/GuoduIcon.vue')['default']
     HeadingCommandButton: typeof import('./src/components/MenuCommands/HeadingCommandButton.vue')['default']
     HighlightPopover: typeof import('./src/components/MenuCommands/HighlightPopover.vue')['default']
