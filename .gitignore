@@ -4,6 +4,7 @@
 dist
 dist-ssr
 node_modules
+lib
 
 # log
 npm-debug.log*
