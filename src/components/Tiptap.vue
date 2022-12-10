@@ -23,7 +23,7 @@ const editor = useEditor({
   },
   extensions: [...props.extensions],
 })
-
+defineExpose({ editor })
 watchEffect(() => {
   unref(editor)?.setOptions({
     editorProps: {

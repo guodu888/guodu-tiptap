@@ -10,6 +10,7 @@ const plugin: Plugin = {
 }
 
 export * from './extensions'
+export * from './utils'
 
 export { GuoduTiptap }
 
