@@ -2,6 +2,7 @@ import type { Plugin } from 'vue'
 import GuoduTiptap from '~/components/Tiptap.vue'
 import 'tippy.js/dist/tippy.css' // optional for styling
 import 'tippy.js/themes/light.css'
+import 'uno.css'
 
 const plugin: Plugin = {
   install(app) {

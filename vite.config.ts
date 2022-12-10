@@ -73,6 +73,7 @@ export default defineConfig(({ mode }) => {
             name: 'GuoduTiptap',
             fileName: 'guodu-tiptap',
           },
+          cssCodeSplit: true,
           // https://rollupjs.org/guide/en/#big-list-of-options
           rollupOptions: {
             // 确保外部化处理那些你不想打包进库的依赖
