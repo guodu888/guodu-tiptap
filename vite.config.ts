@@ -7,6 +7,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import svgLoader from 'vite-svg-loader'
 import dts from 'vite-plugin-dts'
+import libCss from 'vite-plugin-libcss'
 
 const libDir = path.resolve(__dirname, 'lib')
 const srcDir = path.resolve(__dirname, 'src')
@@ -31,7 +32,7 @@ export default defineConfig(({ mode }) => {
       Pages({
         dirs: ['playground/pages'],
       }),
-
+      libCss(),
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
         imports: [

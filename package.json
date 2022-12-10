@@ -78,6 +78,7 @@
     "@vue/runtime-core": "^3.2.45",
     "@vue/test-utils": "^2.2.6",
     "bumpp": "^8.2.1",
+    "vite-plugin-libcss": "^1.0.5",
     "eslint": "^8.29.0",
     "jsdom": "^20.0.3",
     "pnpm": "^7.18.1",

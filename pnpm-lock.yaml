@@ -63,6 +63,7 @@ specifiers:
   unplugin-vue-components: ^0.22.11
   vite: ^3.2.5
   vite-plugin-dts: ^1.7.1
+  vite-plugin-libcss: ^1.0.5
   vite-plugin-pages: ^0.25.0
   vite-svg-loader: ^3.6.0
   vitest: ^0.21.1
@@ -139,6 +140,7 @@ devDependencies:
   unplugin-vue-components: 0.22.11_vue@3.2.45
   vite: 3.2.5_ejult4swjzbqu66sad7uqo3tjq
   vite-plugin-dts: 1.7.1_vite@3.2.5
+  vite-plugin-libcss: 1.0.5_vite@3.2.5
   vite-plugin-pages: 0.25.0_vite@3.2.5
   vite-svg-loader: 3.6.0
   vitest: 0.21.1_jsdom@20.0.3+sass@1.56.1
@@ -5054,6 +5056,14 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+    dev: true
+
+  /vite-plugin-libcss/1.0.5_vite@3.2.5:
+    resolution: {integrity: sha512-NUQwWhn9j8fpRBwHeDr35a3TuRP0xvdIHtJni+3DcnPcq4Vrg+G5A3ZtCJ8y2EC83G97tBJ36svPdiIVuBEfsQ==}
+    peerDependencies:
+      vite: ^2
+    dependencies:
+      vite: 3.2.5_ejult4swjzbqu66sad7uqo3tjq
     dev: true
 
   /vite-plugin-pages/0.25.0_vite@3.2.5:
