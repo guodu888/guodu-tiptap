@@ -7,7 +7,7 @@
 -->
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
-import { BubbleMenu } from '@tiptap/vue-3'
+import { BubbleMenu, isTextSelection } from '@tiptap/vue-3'
 import { computed, inject, ref } from 'vue'
 import { AllSelection, TextSelection } from 'prosemirror-state'
 import { CellSelection } from '@tiptap/prosemirror-tables'
@@ -62,10 +62,19 @@ function handleBack() {
   linkBack.value = false
   tableBack.value = false
 }
+function isShouldShow({ state, from, to }: any) {
+  const { doc, selection } = state
+  const { empty } = selection
+  const isEmptyTextBlock = !doc.textBetween(from, to).length
+      && isTextSelection(state.selection)
+  if (empty || isEmptyTextBlock)
+    return false
+  return (isTable.value || isText.value || isLink.value)
+}
 </script>
 
 <template>
-  <BubbleMenu v-if="props.editor" :editor="props.editor" :tippy-options="{ duration: 100, theme }" :should-show="() => (isTable || isText || isLink)">
+  <BubbleMenu v-if="props.editor" :editor="props.editor" :tippy-options="{ duration: 100, theme }" :should-show="isShouldShow">
     <LinkBubbleMenu v-if="(isLink && !linkBack)" :editor="props.editor">
       <CommandButton v-if="textMenuEnable" icon="arrow-left" tooltip="更多" :command="() => linkBack = true" />
     </LinkBubbleMenu>
