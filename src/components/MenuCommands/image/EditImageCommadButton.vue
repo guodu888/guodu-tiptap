@@ -7,6 +7,7 @@
 -->
 <script setup lang="ts">
 import type { Node as ProseMirrorNode } from 'prosemirror-model'
+import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from '../CommandButton.vue'
 const props = defineProps<{

@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import { directive as vTippy } from 'vue-tippy'
+import { inject } from 'vue'
 import GuoduIcon from '../GuoduIcon.vue'
 const props = withDefaults(
   defineProps<{

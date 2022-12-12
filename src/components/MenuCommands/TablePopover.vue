@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
 import { Tippy } from 'vue-tippy'
+import { computed, inject, ref } from 'vue'
 import { enableMergeCells, enableSplitCell } from '~/utils/table'
 
 const props = defineProps<{ editor: Editor }>()
@@ -71,23 +72,41 @@ function handleDeleteTable() {
       <div class="flex flex-col">
         <CreateTablePopover @create="handleCreatedTable" />
         <div class="dividing-line" />
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleAddCol('before')">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleAddCol('before')"
+        >
           向左插入一列
         </div>
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleAddCol('after')">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleAddCol('after')"
+        >
           向右插入一列
         </div>
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleDeleteCol">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleDeleteCol"
+        >
           删除列
         </div>
         <div class="dividing-line" />
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleAddRow('before')">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleAddRow('before')"
+        >
           向下插入一行
         </div>
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleAddRow('after')">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleAddRow('after')"
+        >
           向上插入一行
         </div>
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleDeleteRow">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleDeleteRow"
+        >
           删除行
         </div>
         <div class="dividing-line" />
@@ -98,7 +117,10 @@ function handleDeleteTable() {
           拆分单元格
         </div>
         <div class="dividing-line" />
-        <div class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }" @click="handleDeleteTable">
+        <div
+          class="popover-menu-item" :class="{ 'popover-menu-item-disable': !selectedTable }"
+          @click="handleDeleteTable"
+        >
           删除表格
         </div>
       </div>

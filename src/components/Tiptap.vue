@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, provide, ref, unref, watchEffect } from 'vue'
 import type { Extensions } from '@tiptap/core'
 import { EditorContent, useEditor } from '@tiptap/vue-3'
 const props = withDefaults(defineProps<{

@@ -7,7 +7,7 @@
 -->
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from './CommandButton.vue'
 const props = defineProps<{
