@@ -1,6 +1,6 @@
 {
   "name": "guodu-tiptap",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "packageManager": "pnpm@7.4.0",
   "description": "A WYSIWYG rich-text editor using tiptap",
   "author": "shy1118",
