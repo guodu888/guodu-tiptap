@@ -50,6 +50,7 @@ specifiers:
   '@vueuse/core': ^9.6.0
   bumpp: ^8.2.1
   eslint: ^8.29.0
+  fast-glob: ^3.2.12
   highlight.js: ^11.7.0
   jsdom: ^20.0.3
   lowlight: ^2.8.0
@@ -131,6 +132,7 @@ devDependencies:
   '@vue/test-utils': 2.2.6_vue@3.2.45
   bumpp: 8.2.1
   eslint: 8.29.0
+  fast-glob: 3.2.12
   jsdom: 20.0.3
   pnpm: 7.18.1
   sass: 1.56.1

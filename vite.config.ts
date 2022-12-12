@@ -8,14 +8,18 @@ import Unocss from 'unocss/vite'
 import svgLoader from 'vite-svg-loader'
 import dts from 'vite-plugin-dts'
 import libCss from 'vite-plugin-libcss'
+import fg from 'fast-glob'
 
 const libDir = path.resolve(__dirname, 'lib')
 const srcDir = path.resolve(__dirname, 'src')
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
   const IS_DEMO = process.env.VITE_BUILD_TARGET === 'demo'
-
+  let components = await fg('./src/components/**/*.vue')
+  components = components.map((item) => {
+    return path.resolve(__dirname, item)
+  })
   return {
     resolve: {
       alias: {
@@ -69,8 +73,9 @@ export default defineConfig(({ mode }) => {
       : {
           outDir: libDir,
           minify: 'esbuild',
+
           lib: {
-            entry: path.resolve(srcDir, 'index.ts'),
+            entry: [path.resolve(srcDir, 'index.ts'), path.resolve(srcDir, 'extensions/index.ts'), ...components],
             name: 'GuoduTiptap',
             fileName: 'guodu-tiptap',
           },
@@ -82,7 +87,7 @@ export default defineConfig(({ mode }) => {
             output: {
               exports: 'named',
               // https://github.com/henriquehbr/svelte-typewriter/issues/21#issuecomment-968835822
-              inlineDynamicImports: true,
+              // inlineDynamicImports: true,
               // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
               globals: {
                 vue: 'vue',
