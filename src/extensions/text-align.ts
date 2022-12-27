@@ -21,7 +21,6 @@ export default TextAlign.extend<TextAlignOptions & MenuOptions, any>({
     }
     return {
       ...this.parent?.(),
-      multicolor: true,
       menuBtnView({ editor, extension }: { editor: Editor; extension: Extension }): MenuBtnView[] {
         const { alignments } = extension.options
         return alignments.map((x: string): any => {
@@ -33,6 +32,7 @@ export default TextAlign.extend<TextAlignOptions & MenuOptions, any>({
                 command: () => {
                   editor.commands.setTextAlign(info.flag)
                 },
+                isActive: editor.isActive({ textAlign: info.flag}),
                 icon: info.icon,
                 tooltip: info.title,
               },
