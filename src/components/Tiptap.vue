@@ -68,6 +68,7 @@ provide('toggleFullscreen', toggleFullscreen)
 .ProseMirror {
   height: 100%;
 }
+
 .guodu-tiptap-editor {
   --black-color: #000;
   --white-color: #fff;
@@ -313,10 +314,13 @@ provide('toggleFullscreen', toggleFullscreen)
 
   /* max-indent */
     {
-    $indent-margin-base: 30px;
+    $indent-base: 1em;
 
-    *[data-indent='#{$i}'] {
-      margin-left: $indent-margin-base * $i !important;
+    [data-indent='#{$i}'] {
+      text-indent: $indent-base * $i;
+    }
+    [data-indent='#{$i}'] * {
+      text-indent: 0;
     }
   }
 

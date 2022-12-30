@@ -13,6 +13,7 @@ export { default as Color } from './color'
 export { default as Fullscreen } from './fullscreen'
 export { default as CustomCommands } from './commands'
 export { default as ImportWord } from './import-word'
+export { default as Indent } from './indent'
 
 // marks
 export { default as Bold } from './marks/bold'
