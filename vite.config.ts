@@ -31,7 +31,7 @@ export default defineConfig(async ({ mode }) => {
       Pages({
         dirs: ['playground/pages'],
       }),
-      libCss(),
+      libCss({}),
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
         imports: [

@@ -32,7 +32,7 @@ export default TextAlign.extend<TextAlignOptions & MenuOptions, any>({
                 command: () => {
                   editor.commands.setTextAlign(info.flag)
                 },
-                isActive: editor.isActive({ textAlign: info.flag}),
+                isActive: editor.isActive({ textAlign: info.flag }),
                 icon: info.icon,
                 tooltip: info.title,
               },
