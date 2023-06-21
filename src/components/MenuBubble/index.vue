@@ -75,7 +75,7 @@ function isShouldShow({ state, from, to }: any) {
 </script>
 
 <template>
-  <BubbleMenu v-if="props.editor" :editor="props.editor" :tippy-options="{ duration: 100, theme }" :should-show="isShouldShow">
+  <BubbleMenu v-if="props.editor" :editor="props.editor" :tippy-options="{ duration: 100, theme }" :should-show="isShouldShow" :update-delay="1">
     <LinkBubbleMenu v-if="(isLink && !linkBack)" :editor="props.editor">
       <CommandButton v-if="textMenuEnable" icon="arrow-left" tooltip="更多" :command="() => linkBack = true" />
     </LinkBubbleMenu>

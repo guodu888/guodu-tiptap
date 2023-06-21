@@ -85,7 +85,7 @@ function showPopover() {
               @mouseover="selectTableGridSize(row, col)"
               @mousedown="onMouseDown(row, col)"
             >
-              <div class="border-1 w-2 h-2 p-1" :class="{ 'border-blue': col <= selectedTableGridSize.col && row <= selectedTableGridSize.row }" />
+              <div class="border-1 b-solid w-2 h-2 p-1" :class="{ 'border-blue': col <= selectedTableGridSize.col && row <= selectedTableGridSize.row }" />
             </div>
           </div>
         </div>
