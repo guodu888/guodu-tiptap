@@ -11,6 +11,5 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
-app.config.unwrapInjectedRef = true
 app.use(router)
 app.mount('#app')

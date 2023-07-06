@@ -134,6 +134,9 @@ dependencies:
   mammoth:
     specifier: ^1.6.0
     version: 1.6.0
+  mathlive:
+    specifier: ^0.94.8
+    version: 0.94.8
   prosemirror-commands:
     specifier: ^1.5.2
     version: 1.5.2
@@ -484,6 +487,14 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
+
+  /@cortex-js/compute-engine@0.12.2:
+    resolution: {integrity: sha512-MxXYwCsHzcuzpC81khhp+r0/PN6gO8/Kb9kDeATFUwGqDU0sfejskvmiblQI5xlc323WVSGQOXNemqHFBgCx5g==}
+    engines: {node: '>=16.14.2', npm: '>=8.5.0'}
+    dependencies:
+      complex.js: 2.1.1
+      decimal.js: 10.4.3
+    dev: false
 
   /@esbuild/android-arm64@0.17.19:
     resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==}
@@ -2696,6 +2707,10 @@ packages:
     dev: true
     optional: true
 
+  /complex.js@2.1.1:
+    resolution: {integrity: sha512-8njCHOTtFFLtegk6zQo0kkVX1rngygb/KQI6z1qZxlFI3scluC+LVTCFbrkWjBv4vvLlbQ9t88IPMC6k95VTTg==}
+    dev: false
+
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -2827,7 +2842,6 @@ packages:
 
   /decimal.js@10.4.3:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==}
-    dev: true
 
   /deep-eql@4.1.3:
     resolution: {integrity: sha512-WaEtAOpRA1MQ0eohqZjpGD8zdI0Ovsm8mmFhaDN8dvDZzyoUMcYDnf5Y6iu7HTXxf8JDS23qWa4a+hKCDyOPzw==}
@@ -4736,6 +4750,13 @@ packages:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
+    dev: false
+
+  /mathlive@0.94.8:
+    resolution: {integrity: sha512-CDe16R1AkxF6RvpGhkqYJ7CyxM6MvXxxyuh+QXoI1Qp7Uj4zSC6mIpC3RG/JjrAt8gGoJGzVhJbU1LeU4moZAA==}
+    engines: {node: '>=16.14.2', npm: '>=8.5.0'}
+    dependencies:
+      '@cortex-js/compute-engine': 0.12.2
     dev: false
 
   /mdast-util-from-markdown@0.8.5:

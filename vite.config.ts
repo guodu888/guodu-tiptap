@@ -25,7 +25,13 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       Vue({
-        reactivityTransform: true,
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => {
+              return ['math-field'].includes(tag)
+            },
+          },
+        },
       }),
       svgLoader(),
       Pages({
