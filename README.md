@@ -49,6 +49,7 @@ Documentation will be updated soon.
 + import-word  
 + placeholder  
 + text-align  
++ math
 
 
 ## source of inspiration
