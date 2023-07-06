@@ -1,8 +1,8 @@
 /*
  * @Author: shaohang-shy
  * @Date: 2022-11-30 16:36:43
- * @LastEditors: shaohang-shy
- * @LastEditTime: 2022-11-30 19:29:48
+ * @LastEditors: Arthur_Zhang
+ * @LastEditTime: 2023-07-06 14:33:54
  * @Description: import-word
  */
 import { Extension } from '@tiptap/core'
@@ -23,12 +23,31 @@ function transformElement(element: any) {
 
   return element
 }
+// base64转为file
+function dataURLtoFile(dataurl: string, fileName?: string) {
+  const arr = dataurl.split(',') as string[]
+  const mime = (arr[0].match(/:(.*?);/))![1]
+  const bstr = atob(arr[1])
+  let n = bstr.length
+  const u8arr = new Uint8Array(n)
+  while (n--)
+    u8arr[n] = bstr.charCodeAt(n)
+
+  return new File(
+    [u8arr],
+    fileName
+      || `${new Date().getTime()}${Math.floor(Math.random() * 1000000)}.${
+        mime.split('/')[1]
+      }`,
+    { type: mime },
+  )
+}
 
 export default Extension.create({
   name: 'import-word',
   addOptions() {
     return {
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      menuBtnView({ editor, extension }: { editor: Editor; extension: Extension }): MenuBtnView {
         return {
           component: CommandButton,
           componentProps: {
@@ -38,7 +57,7 @@ export default Extension.create({
               input.addEventListener('change', (e: any) => {
                 const file = e.target.files[0]
                 input.value = ''
-
+                // console.log('extension options',extension.options)
                 const { name } = file
                 if (name.split('.').pop() !== 'docx')
                   console.error('仅支持docx文件')
@@ -59,10 +78,22 @@ export default Extension.create({
                       return image.read('base64').then(async (imageBuffer: any) => {
                         const base64
                                 = `data:${image.contentType};base64,${imageBuffer}`
-                        // const file = that.dataURLtoFile(base64)
-                        // const src = await that.handleUploadFile(file)
+                        const file = dataURLtoFile(base64)
+                        let uploadUrl = ''
+                        // 判断有没有添加上传的方法
+                        if (extension.options.upload) {
+                          try {
+                            uploadUrl = await extension.options.upload(file)
+                          }
+                          catch (error) {
+                            uploadUrl = base64
+                          }
+                        }
+                        else {
+                          uploadUrl = base64
+                        }
                         return {
-                          src: base64,
+                          src: uploadUrl,
                         }
                       })
                     }),
