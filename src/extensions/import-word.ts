@@ -11,7 +11,11 @@ import type { Editor } from '@tiptap/vue-3'
 // @ts-expect-error
 import mammoth from 'mammoth/mammoth.browser.js'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
+
+export interface ImportWordOptions {
+  uploadImage: (base64: string) => Promise<{ src: string }>
+}
 
 function transformElement(element: any) {
   if (element.children) {
@@ -24,11 +28,12 @@ function transformElement(element: any) {
   return element
 }
 
-export default Extension.create({
+export default Extension.create<ImportWordOptions & MenuOptions, any>({
   name: 'import-word',
   addOptions() {
     return {
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      uploadImage: (base64: string) => Promise.resolve({ src: base64 }),
+      menuBtnView({ editor, extension }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
         return {
           component: CommandButton,
           componentProps: {
@@ -57,13 +62,10 @@ export default Extension.create({
                     ],
                     convertImage: mammoth.images.imgElement((image: any) => {
                       return image.read('base64').then(async (imageBuffer: any) => {
-                        const base64
-                                = `data:${image.contentType};base64,${imageBuffer}`
+                        const base64 = `data:${image.contentType};base64,${imageBuffer}`
                         // const file = that.dataURLtoFile(base64)
                         // const src = await that.handleUploadFile(file)
-                        return {
-                          src: base64,
-                        }
+                        return await extension.options.uploadImage(base64)
                       })
                     }),
                   }
