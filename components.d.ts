@@ -14,6 +14,7 @@ declare module 'vue' {
     CreateTablePopover: typeof import('./src/components/MenuCommands/table/CreateTablePopover.vue')['default']
     EditImageCommadButton: typeof import('./src/components/MenuCommands/image/EditImageCommadButton.vue')['default']
     FontColorPopover: typeof import('./src/components/MenuCommands/FontColorPopover.vue')['default']
+    FontFamilyCommandButton: typeof import('./src/components/MenuCommands/FontFamilyCommandButton.vue')['default']
     Footer: typeof import('./playground/components/Footer.vue')['default']
     FullscreenCommandButton: typeof import('./src/components/MenuCommands/FullscreenCommandButton.vue')['default']
     GuoduIcon: typeof import('./src/components/GuoduIcon.vue')['default']

@@ -6,10 +6,10 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, Link, Math, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
+import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FontFamily, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, Link, Math, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
 
 const extensions = [
-  Document.configure({ title: false }), TextAlign.configure({
+  Document.configure({ title: false }), FontFamily, TextAlign.configure({
     types: ['heading', 'paragraph'],
   }), Color, CodeBlockLowlight, Indent, Math,
   Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear, Fullscreen, CustomCommands,

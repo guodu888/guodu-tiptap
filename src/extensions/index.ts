@@ -26,7 +26,7 @@ export { default as Superscript } from './marks/superscript'
 export { default as Underline } from './marks/underline'
 export { default as Link } from './marks/link'
 export { default as Highlight } from './marks/highlight'
-
+export { default as FontFamily } from './marks/font-family'
 // Nodes
 export { default as Heading } from './nodes/heading'
 export { default as BulletList } from './nodes/bullet-list'
