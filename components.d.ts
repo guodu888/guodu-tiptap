@@ -23,6 +23,7 @@ declare module 'vue' {
     ImageDisplayCommandButton: typeof import('./src/components/MenuCommands/image/ImageDisplayCommandButton.vue')['default']
     ImageView: typeof import('./src/components/ExtensionViews/ImageView.vue')['default']
     InsertImageCommandButton: typeof import('./src/components/MenuCommands/InsertImageCommandButton.vue')['default']
+    LineHeightCommandButton: typeof import('./src/components/MenuCommands/LineHeightCommandButton.vue')['default']
     LinkBubbleMenu: typeof import('./src/components/MenuBubble/LinkBubbleMenu.vue')['default']
     MathView: typeof import('./src/components/ExtensionViews/MathView.vue')['default']
     MenuBar: typeof import('./src/components/MenuBar/index.vue')['default']

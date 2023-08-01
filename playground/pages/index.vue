@@ -6,18 +6,14 @@
  * @Description: index page
 -->
 <script setup lang="ts">
-import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FontFamily, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, Link, Math, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
+import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FontFamily, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, LineHeight, Link, Math, OrderedList, Paragraph, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
 
 const extensions = [
-  Document.configure({ title: false }), FontFamily, TextAlign.configure({
+  Document.configure({ title: false }), FontFamily, LineHeight, TextAlign.configure({
     types: ['heading', 'paragraph'],
   }), Color, CodeBlockLowlight, Indent, Math,
   Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear, Fullscreen, CustomCommands,
-  Text, BulletList, OrderedList, TaskList, Blockquote, HorizontalRule, ImportWord.configure({
-    uploadImage: (base64: string) => {
-      return Promise.resolve({ src: base64 })
-    },
-  }),
+  Text, BulletList, OrderedList, TaskList, Blockquote, HorizontalRule, ImportWord,
   History, Link.configure({ bubble: true }), Highlight.configure({ bubble: true }), Heading.configure({ levels: [1, 2, 3] }),
   Bold.configure({ bubble: true }), Code.configure({ bubble: true }), Emphasis, Italic.configure({ bubble: true }), Strike.configure({ bubble: true }), Subscript, Superscript, Underline,
 ]

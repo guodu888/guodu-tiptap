@@ -9,12 +9,25 @@ import { Extension } from '@tiptap/core'
 import type { Editor } from '@tiptap/vue-3'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import mammoth from 'mammoth/mammoth.browser.js'
+import mammoth from '@shy1118/mammoth/mammoth.browser.js'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
-
 export interface ImportWordOptions {
-  uploadImage: (base64: string) => Promise<{ src: string }>
+  uploadImage: (image: MammothImage) => Promise<{ src: string }>
+  uploadCallback: (file: File) => void
+}
+
+export interface MammothImage {
+  contentType: string
+  readAsArrayBuffer: () => Promise<ArrayBuffer>
+  readAsBase64String: () => Promise<string>
+  readAsBuffer: () => Promise<Buffer>
+  read: ImageRead
+}
+
+export interface ImageRead {
+  (): Promise<Buffer>
+  (encoding: string): Promise<string>
 }
 
 function transformElement(element: any) {
@@ -32,7 +45,16 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
   name: 'import-word',
   addOptions() {
     return {
-      uploadImage: (base64: string) => Promise.resolve({ src: base64 }),
+      uploadImage: (image: MammothImage) => {
+        return new Promise((resolve) => {
+          image.readAsArrayBuffer().then(async (imageBuffer: any) => {
+            const blob = new Blob([imageBuffer], { type: image.contentType })
+            const url = URL.createObjectURL(blob)
+            resolve({ src: url })
+          })
+        })
+      },
+      uploadCallback: () => {},
       menuBtnView({ editor, extension }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
         return {
           component: CommandButton,
@@ -43,11 +65,10 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
               input.addEventListener('change', (e: any) => {
                 const file = e.target.files[0]
                 input.value = ''
-
+                extension.options.uploadCallback(file)
                 const { name } = file
                 if (name.split('.').pop() !== 'docx')
                   console.error('仅支持docx文件')
-
                 const reader = new FileReader()
                 reader.onload = function (loadEvent: any) {
                   const arrayBuffer = loadEvent.target.result // arrayBuffer
@@ -60,13 +81,8 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
                       'sup => sup',
                       'sub => sub',
                     ],
-                    convertImage: mammoth.images.imgElement((image: any) => {
-                      return image.read('base64').then(async (imageBuffer: any) => {
-                        const base64 = `data:${image.contentType};base64,${imageBuffer}`
-                        // const file = that.dataURLtoFile(base64)
-                        // const src = await that.handleUploadFile(file)
-                        return await extension.options.uploadImage(base64)
-                      })
+                    convertImage: mammoth.images.imgElement((image: MammothImage) => {
+                      return extension.options.uploadImage(image)
                     }),
                   }
                   mammoth

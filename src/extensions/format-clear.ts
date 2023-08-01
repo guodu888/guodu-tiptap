@@ -29,12 +29,12 @@ export default Extension.create({
       underline: 'unsetUnderline',
       strike: 'unsetStrike',
       link: 'unsetLink',
-      // fontFamily: 'unsetFontFamily',
+      fontFamily: 'unsetFontFamily',
       // fontSize: 'unsetFontSize',
       color: 'unsetColor',
       highlight: 'unsetHighlight',
       textAlign: 'unsetTextAlign',
-      // lineHeight: 'unsetLineHeight',
+      lineHeight: 'unsetLineHeight',
     }
 
     return {
