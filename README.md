@@ -21,6 +21,9 @@ Documentation will be updated soon.
 + subscript  
 + superscript  
 + underline  
++ math  
++ line-height  
++ font-family  
 
 ### nodes
 
