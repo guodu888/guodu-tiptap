@@ -6,9 +6,11 @@ const props = withDefaults(defineProps<{
   extensions: Extensions
   content?: string
   theme?: 'light' | 'dark'
+  showLineNo?: boolean
 }>(), {
   content: '',
   theme: 'light',
+  showLineNo: false,
 })
 const emits = defineEmits(['update:content'])
 
@@ -53,7 +55,7 @@ provide('toggleFullscreen', toggleFullscreen)
 <template>
   <div
     class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%"
-    :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark', 'guodu-tiptap-editor-fullscreen': isFullscreen }"
+    :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark', 'guodu-tiptap-editor-fullscreen': isFullscreen, 'guodu-tiptap-line-no': props.showLineNo }"
   >
     <MenuBar :editor="editor" />
     <MenuBubble :editor="editor" />
@@ -67,6 +69,66 @@ provide('toggleFullscreen', toggleFullscreen)
 <style lang="scss">
 .ProseMirror {
   height: 100%;
+}
+
+.guodu-tiptap-line-no {
+  .ProseMirror {
+    counter-reset: section;
+    padding-left: 32px;
+
+    > {
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol,
+      table,
+      blockquote {
+
+        position: relative;
+        counter-increment: section;
+
+        &:before {
+          text-align: left;
+          text-indent: 0;
+          display: block;
+          position: absolute;
+          left: -32px;
+          top: 50%;
+          transform: translateY(-50%);
+          // 展示是第几个元素
+          content: counter(section);
+          // content: "A";
+          color: #999;
+          font-size: 16px;
+          font-weight: 100;
+        }
+      }
+
+      ul,
+      ol {
+        &:before {
+          left: -56px;
+        }
+      }
+
+      blockquote {
+        &:before {
+          left: -37px;
+        }
+      }
+      ul[data-type=taskList] {
+        &:before {
+          left: -37px;
+        }
+      }
+    }
+  }
 }
 
 .guodu-tiptap-editor {
@@ -319,6 +381,7 @@ provide('toggleFullscreen', toggleFullscreen)
     [data-indent='#{$i}'] {
       text-indent: $indent-base * $i;
     }
+
     [data-indent='#{$i}'] * {
       text-indent: 0;
     }
@@ -334,7 +397,6 @@ provide('toggleFullscreen', toggleFullscreen)
     table-layout: fixed;
     width: 100%;
     margin: 0;
-    overflow: hidden;
   }
 
   th,
@@ -485,8 +547,6 @@ provide('toggleFullscreen', toggleFullscreen)
     table-layout: fixed;
     width: 100%;
     margin: 0;
-    overflow: hidden;
-
     td,
     th {
       min-width: 1em;

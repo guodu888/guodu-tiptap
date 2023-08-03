@@ -23,6 +23,12 @@ const content = ref('<h1 style="text-align: center">Welcome to `guodu-tiptap`</h
 const theme = computed(() => {
   return isDark.value ? 'dark' : 'light'
 })
+const editorRef = ref()
+function logEditorRef() {
+  // eslint-disable-next-line no-console
+  console.log(editorRef.value.editor)
+}
+const showLineNo = ref(false)
 </script>
 
 <template>
@@ -37,8 +43,14 @@ const theme = computed(() => {
         icon-btn i-carbon-logo-github rel="noreferrer" href="https://github.com/shy1118999/guodu-tiptap" target="_blank"
         title="GitHub"
       />
+      <button @click="logEditorRef">
+        Log Editor Instance
+      </button>
+      <button @click="showLineNo = !showLineNo">
+        显示/隐藏行号
+      </button>
     </div>
-    <GuoduTiptap v-model:content="content" :extensions="extensions" :theme="theme" />
+    <GuoduTiptap ref="editorRef" v-model:content="content" :show-line-no="showLineNo" :extensions="extensions" :theme="theme" />
   </div>
 </template>
 
