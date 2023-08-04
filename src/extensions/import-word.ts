@@ -15,6 +15,7 @@ import type { MenuBtnView, MenuOptions } from '~/typings'
 export interface ImportWordOptions {
   uploadImage: (image: MammothImage) => Promise<{ src: string }>
   uploadCallback: (file: File) => void
+  htmlParser: (html: string) => string
 }
 
 export interface MammothImage {
@@ -55,6 +56,7 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
         })
       },
       uploadCallback: () => {},
+      htmlParser: (html: string) => html.replace(/&amp;nbsp;/g, '&nbsp;'),
       menuBtnView({ editor, extension }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
         return {
           component: CommandButton,
@@ -88,10 +90,8 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
                   mammoth
                     .convertToHtml({ arrayBuffer }, options)
                     .then((e: any) => {
-                      const newV = e.value.replace(/&amp;nbsp;/g, '&nbsp;')
-                      // 修复组合题和【】不换行
-                      const lineFeed = newV.replace(/<br \/>【】/g, '</p><p>【】')
-                      editor.commands.setContent(lineFeed, true)
+                      const v = extension.options.htmlParser(e.value)
+                      editor.commands.setContent(v, true)
                     })
                     .done()
                 }
