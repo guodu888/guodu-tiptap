@@ -32,8 +32,8 @@ const showLineNo = ref(false)
 </script>
 
 <template>
-  <div>
-    <div class="flex items-center gap-3 justify-start">
+  <div class="container mx-auto">
+    <div class="flex items-center gap-3 justify-start ">
       <h2>Welcome to <code>`guodu-tiptap`</code></h2>
       <div icon-btn @click="toggleDark()">
         <div dark:i-carbon-moon i-carbon-sun />
