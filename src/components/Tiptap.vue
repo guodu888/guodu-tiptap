@@ -43,7 +43,9 @@ watchEffect(() => {
 onMounted(() => {
   emits('update:content', editor.value?.getHTML())
 })
-
+onUnmounted(() => {
+  editor.value?.destroy()
+})
 const isFullscreen = ref(false)
 const toggleFullscreen = (val: boolean) => {
   isFullscreen.value = val
