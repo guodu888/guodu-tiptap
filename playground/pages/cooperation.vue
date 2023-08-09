@@ -15,7 +15,7 @@ import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCom
 const ydoc = new Y.Doc()
 // Registered with a WebRTC provider
 const provider = new WebrtcProvider('example-document', ydoc, {
-  signaling: ['wss://signaling.yjs.dev', 'wss://y-webrtc-signaling-eu.herokuapp.com', 'wss://y-webrtc-signaling-us.herokuapp.com'],
+  signaling: ['wss://signaling.yjs.dev'],
 })
 const extensions = [
   Document.configure({ title: false }), FontFamily, LineHeight, TextAlign.configure({
