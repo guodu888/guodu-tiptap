@@ -14,7 +14,7 @@
   "scripts": {
     "build:demo": "VITE_BUILD_TARGET=demo vite build",
     "build:lib": "vite build",
-    "dev": "vite --port 5433 --host",
+    "dev": "vite --port 5439 --host",
     "preview": "vite preview",
     "lint": "eslint ./src && eslint ./playground",
     "typecheck": "vue-tsc --noEmit",

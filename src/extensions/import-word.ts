@@ -31,6 +31,14 @@ export interface ImageRead {
   (encoding: string): Promise<string>
 }
 
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    'importWord': {
+      importWord: (editor: Editor) => ReturnType
+    }
+  }
+}
+
 function transformElement(element: any) {
   if (element.children) {
     const children = element.children.map(transformElement)
@@ -43,7 +51,7 @@ function transformElement(element: any) {
 }
 
 export default Extension.create<ImportWordOptions & MenuOptions, any>({
-  name: 'import-word',
+  name: 'importWord',
   addOptions() {
     return {
       uploadImage: (image: MammothImage) => {
@@ -57,54 +65,63 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
       },
       uploadCallback: () => {},
       htmlParser: (html: string) => html.replace(/&amp;nbsp;/g, '&nbsp;'),
-      menuBtnView({ editor, extension }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
+      menuBtnView({ editor }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
         return {
           component: CommandButton,
           componentProps: {
             command: () => {
-              const input = document.createElement('input')
-              input.setAttribute('type', 'file')
-              input.addEventListener('change', (e: any) => {
-                const file = e.target.files[0]
-                input.value = ''
-                extension.options.uploadCallback(file)
-                const { name } = file
-                if (name.split('.').pop() !== 'docx')
-                  console.error('仅支持docx文件')
-                const reader = new FileReader()
-                reader.onload = function (loadEvent: any) {
-                  const arrayBuffer = loadEvent.target.result // arrayBuffer
-                  const options = {
-                    transformDocument: transformElement,
-                    styleMap: [
-                      'u => u',
-                      'strike => del',
-                      'i => em',
-                      'sup => sup',
-                      'sub => sub',
-                    ],
-                    convertImage: mammoth.images.imgElement((image: MammothImage) => {
-                      return extension.options.uploadImage(image)
-                    }),
-                  }
-                  mammoth
-                    .convertToHtml({ arrayBuffer }, options)
-                    .then((e: any) => {
-                      const v = extension.options.htmlParser(e.value)
-                      editor.commands.setContent(v, true)
-                    })
-                    .done()
-                }
-
-                reader.readAsArrayBuffer(file)
-              })
-              input.click()
+              editor.chain().importWord(editor).run()
             },
             isActive: false,
             icon: 'file-word',
             tooltip: 'word导入',
           },
         }
+      },
+    }
+  },
+  addCommands() {
+    return {
+      ...this.parent?.(),
+      importWord: (editor: Editor) => () => {
+        const input = document.createElement('input')
+        input.setAttribute('type', 'file')
+        input.addEventListener('change', (e: any) => {
+          const file = e.target.files[0]
+          input.value = ''
+          this.options.uploadCallback(file)
+          const { name } = file
+          if (name.split('.').pop() !== 'docx')
+            console.error('仅支持docx文件')
+          const reader = new FileReader()
+          reader.onload = (loadEvent: any) => {
+            const arrayBuffer = loadEvent.target.result // arrayBuffer
+            const options = {
+              transformDocument: transformElement,
+              styleMap: [
+                'u => u',
+                'strike => del',
+                'i => em',
+                'sup => sup',
+                'sub => sub',
+              ],
+              convertImage: mammoth.images.imgElement((image: MammothImage) => {
+                return this.options.uploadImage(image)
+              }),
+            }
+            mammoth
+              .convertToHtml({ arrayBuffer }, options)
+              .then((e: any) => {
+                const v = this.options.htmlParser(e.value)
+                editor.commands.setContent(v, true)
+              })
+              .done()
+          }
+
+          reader.readAsArrayBuffer(file)
+        })
+        input.click()
+        return true
       },
     }
   },

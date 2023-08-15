@@ -29,6 +29,9 @@ function logEditorRef() {
   console.log(editorRef.value.editor)
 }
 const showLineNo = ref(false)
+function importWord() {
+  editorRef.value.editor.commands.importWord(editorRef.value.editor)
+}
 </script>
 
 <template>
@@ -48,6 +51,9 @@ const showLineNo = ref(false)
       </button>
       <button @click="showLineNo = !showLineNo">
         显示/隐藏行号
+      </button>
+      <button @click="importWord">
+        import word
       </button>
     </div>
     <GuoduTiptap ref="editorRef" v-model:content="content" :show-line-no="showLineNo" :extensions="extensions" :theme="theme" />
