@@ -15,7 +15,7 @@ export default TaskList.extend<TaskListOptions & MenuOptions, any>({
             command: () => {
               editor.commands.toggleTaskList()
             },
-            isActive: editor.isActive('tasklist'),
+            isActive: editor.isActive('taskList'),
             icon: 'tasks',
             tooltip: '待办列表',
           },

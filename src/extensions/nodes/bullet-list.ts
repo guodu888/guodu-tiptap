@@ -15,7 +15,7 @@ export default BulletList.extend<BulletListOptions & MenuOptions, any>({
             command: () => {
               editor.commands.toggleBulletList()
             },
-            isActive: editor.isActive('bulletlist'),
+            isActive: editor.isActive('bulletList'),
             icon: 'list-ul',
             tooltip: '无序列表',
           },

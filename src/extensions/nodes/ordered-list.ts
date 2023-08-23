@@ -15,7 +15,7 @@ export default OrderedList.extend<OrderedListOptions & MenuOptions, any>({
             command: () => {
               editor.commands.toggleOrderedList()
             },
-            isActive: editor.isActive('orderedlist'),
+            isActive: editor.isActive('orderedList'),
             icon: 'list-ol',
             tooltip: '有序列表',
           },
