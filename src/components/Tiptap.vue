@@ -38,7 +38,7 @@ watchEffect(() => {
 })
 watchEffect(() => {
   if (editor.value?.getHTML() !== props.content)
-    editor.value?.commands.setContent(props.content, false)
+    editor.value?.commands.setContent(props.content, true)
 })
 onMounted(() => {
   emits('update:content', editor.value?.getHTML())
