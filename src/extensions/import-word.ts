@@ -1,17 +1,20 @@
 /*
  * @Author: shaohang-shy
  * @Date: 2022-11-30 16:36:43
- * @LastEditors: shaohang-shy
- * @LastEditTime: 2022-11-30 19:29:48
+ * @LastEditors: shy1118
+ * @LastEditTime: 2023-11-18 21:52:57
  * @Description: import-word
  */
+import type { Buffer } from 'node:buffer'
 import { Extension } from '@tiptap/core'
 import type { Editor } from '@tiptap/vue-3'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
+// eslint-disable-next-line ts/ban-ts-comment
 // @ts-expect-error
 import mammoth from '@shy1118/mammoth/mammoth.browser.js'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export interface ImportWordOptions {
   uploadImage: (image: MammothImage) => Promise<{ src: string }>
   uploadCallback: (file: File) => void
@@ -22,7 +25,7 @@ export interface MammothImage {
   contentType: string
   readAsArrayBuffer: () => Promise<ArrayBuffer>
   readAsBase64String: () => Promise<string>
-  readAsBuffer: () => Promise<Buffer>
+  readAsBuffer: ImageRead
   read: ImageRead
 }
 
@@ -65,7 +68,7 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
       },
       uploadCallback: () => {},
       htmlParser: (html: string) => html.replace(/&amp;nbsp;/g, '&nbsp;'),
-      menuBtnView({ editor }: { editor: Editor; extension: Extension<ImportWordOptions, any> }): MenuBtnView {
+      menuBtnView({ editor }: { editor: Editor, extension: Extension<ImportWordOptions, any> }): MenuBtnView {
         return {
           component: CommandButton,
           componentProps: {

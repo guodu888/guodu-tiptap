@@ -2,6 +2,7 @@
 import { onMounted, provide, ref, unref, watchEffect } from 'vue'
 import type { Extensions } from '@tiptap/core'
 import { EditorContent, useEditor } from '@tiptap/vue-3'
+
 const props = withDefaults(defineProps<{
   extensions: Extensions
   content?: string
@@ -47,7 +48,7 @@ onUnmounted(() => {
   editor.value?.destroy()
 })
 const isFullscreen = ref(false)
-const toggleFullscreen = (val: boolean) => {
+function toggleFullscreen(val: boolean) {
   isFullscreen.value = val
 }
 provide('isFullscreen', isFullscreen)
@@ -56,14 +57,14 @@ provide('toggleFullscreen', toggleFullscreen)
 
 <template>
   <div
-    class="guodu-tiptap-editor border-1 border-solid border-#ebeef5 box-border flex rounded-8px flex-col max-h-100% relative w-100%"
+    class="guodu-tiptap-editor relative box-border max-h-100% w-100% flex flex-col border-1 border-#ebeef5 rounded-8px border-solid"
     :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark', 'guodu-tiptap-editor-fullscreen': isFullscreen, 'guodu-tiptap-line-no': props.showLineNo }"
   >
     <MenuBar :editor="editor" />
     <MenuBubble :editor="editor" />
     <EditorContent
       :editor="editor"
-      class="edit-content box-border flex-grow p-15px leading-7 text-left overflow-unset overflow-auto"
+      class="edit-content box-border flex-grow overflow-auto overflow-unset p-15px text-left leading-7"
     />
   </div>
 </template>

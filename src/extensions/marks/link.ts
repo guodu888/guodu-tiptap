@@ -13,6 +13,7 @@ import { Plugin, PluginKey, TextSelection } from 'prosemirror-state'
 import type { EditorView } from 'prosemirror-view'
 import AddLinkCommandButton from '~/components/MenuCommands/AddLinkCommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default Link.extend<LinkOptions & MenuOptions, any>({
   addOptions() {
     return {

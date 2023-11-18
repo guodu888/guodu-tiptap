@@ -42,7 +42,7 @@ export default Extension.create({
         const chainedCommand: ChainedCommands = Object.entries<keyof UnionCommands>(commandsMap).reduce<ChainedCommands>((chain, [name, command]) => {
           const extension = editor.extensionManager.extensions.find(e => e.name === name)
           if (extension) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // eslint-disable-next-line ts/ban-ts-comment
             // @ts-expect-error
             return chain[command]()
           }
@@ -73,4 +73,3 @@ export default Extension.create({
     }
   },
 })
-

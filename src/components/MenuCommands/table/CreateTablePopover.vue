@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
+
 const emit = defineEmits(['create'])
 const theme = inject('theme', 'light')
 const createdTippyRef = ref()
@@ -85,12 +86,12 @@ function showPopover() {
               @mouseover="selectTableGridSize(row, col)"
               @mousedown="onMouseDown(row, col)"
             >
-              <div class="border-1 b-solid w-2 h-2 p-1" :class="{ 'border-blue': col <= selectedTableGridSize.col && row <= selectedTableGridSize.row }" />
+              <div class="h-2 w-2 border-1 b-solid p-1" :class="{ 'border-blue': col <= selectedTableGridSize.col && row <= selectedTableGridSize.row }" />
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-3">
+        <div class="mt-3 text-center">
           {{ selectedTableGridSize.row }} X {{ selectedTableGridSize.col }}
         </div>
       </div>

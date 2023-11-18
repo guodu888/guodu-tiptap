@@ -10,11 +10,12 @@ import Heading from '@tiptap/extension-heading'
 import type { Editor, Extension } from '@tiptap/vue-3'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import HeadingCommandButton from '~/components/MenuCommands/HeadingCommandButton.vue'
+
 export default Heading.extend<HeadingOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor, extension }: { editor: Editor; extension: Extension }): MenuBtnView {
+      menuBtnView({ editor, extension }: { editor: Editor, extension: Extension }): MenuBtnView {
         return {
           component: HeadingCommandButton,
           componentProps: {

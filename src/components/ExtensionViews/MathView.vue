@@ -9,6 +9,7 @@
 import { NodeViewWrapper, nodeViewProps } from '@tiptap/vue-3'
 import { MathfieldElement } from 'mathlive'
 import 'mathlive/fonts.css'
+
 const props = defineProps(nodeViewProps)
 const katex = computed(() => props.node.attrs.katex)
 const mathFieldRef = ref<MathfieldElement>()
@@ -53,7 +54,7 @@ function handleFocus() {
 </script>
 
 <template>
-  <NodeViewWrapper as="span" class="inline-block my-2 max-w-full">
+  <NodeViewWrapper as="span" class="my-2 inline-block max-w-full">
     <math-field ref="mathFieldRef" :readonly="r" keypress-sound="none" @input="handleInput" @click="handleFocus">
       {{ katex }}
     </math-field>

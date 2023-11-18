@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
 import type { MenuBtnView } from '~/typings'
+
 const props = defineProps<{
   editor?: Editor
 }>()
@@ -37,7 +38,7 @@ function generateCommandButtonComponentSpecs(): MenuBtnView[] {
 </script>
 
 <template>
-  <div class="guodu-tiptap-menu-bar flex box-border  border-b-1 border-#ebeef5 flex-shrink-0 flex-wrap p-5px relative bg-white z-1 dark:bg-black">
+  <div class="guodu-tiptap-menu-bar relative z-1 box-border flex flex-shrink-0 flex-wrap border-b-1 border-#ebeef5 bg-white p-5px dark:bg-black">
     <component
       :is="spec.component" v-for="(spec, i) in generateCommandButtonComponentSpecs()"
       :key="`command-button${i}`" v-bind="spec.componentProps"

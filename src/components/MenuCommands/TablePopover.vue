@@ -26,7 +26,7 @@ const enableSplit = computed<string>((): any => {
 function handleShow() {
   tippyRef.value.show()
 }
-function handleCreatedTable(e: { row: number; col: number }) {
+function handleCreatedTable(e: { row: number, col: number }) {
   props.editor.commands.insertTable({ rows: e.row, cols: e.col, withHeaderRow: true })
   tippyRef.value.hide()
 }

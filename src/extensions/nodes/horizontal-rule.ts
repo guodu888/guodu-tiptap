@@ -3,6 +3,7 @@ import HorizontalRule from '@tiptap/extension-horizontal-rule'
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default HorizontalRule.extend<HorizontalRuleOptions & MenuOptions, any>({
   addOptions() {
     return {

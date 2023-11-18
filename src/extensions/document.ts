@@ -7,6 +7,7 @@
  */
 import Document from '@tiptap/extension-document'
 import Title from './nodes/title'
+
 export default Document.extend<{ title: boolean }>({
   addOptions() {
     return {

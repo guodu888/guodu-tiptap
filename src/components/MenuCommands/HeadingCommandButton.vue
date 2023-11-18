@@ -4,7 +4,8 @@ import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import type { Level } from '@tiptap/extension-heading'
 import CommandButton from './CommandButton.vue'
-const props = withDefaults(defineProps<{ editor: Editor; icon?: string; tooltip?: string; active?: boolean; levels: Level[] }>(), {
+
+const props = withDefaults(defineProps<{ editor: Editor, icon?: string, tooltip?: string, active?: boolean, levels: Level[] }>(), {
   icon: '',
   tooltip: '',
   active: false,
@@ -32,7 +33,7 @@ function handleSetHeading(type: Level) {
         <div
           v-for="i in props.levels"
           :key="i"
-          class="py-2 px-1 cursor-pointer hover:color-blue"
+          class="cursor-pointer px-1 py-2 hover:color-blue"
           :class="{ 'color-blue': props.editor.isActive('heading', { level: i }) }"
           @click="handleSetHeading(i)"
         >

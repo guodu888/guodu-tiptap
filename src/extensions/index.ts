@@ -39,4 +39,3 @@ export { default as Image } from './nodes/image'
 export { default as Table } from './nodes/table'
 export { default as CodeBlockLowlight } from './nodes/code-block-lowlight'
 export { default as Mathematics } from './nodes/math'
-

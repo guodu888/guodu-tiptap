@@ -4,6 +4,7 @@ import type { Editor } from '@tiptap/vue-3'
 import ListItem from './list-item'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default OrderedList.extend<OrderedListOptions & MenuOptions, any>({
   addOptions() {
     return {

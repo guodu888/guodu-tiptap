@@ -9,6 +9,7 @@
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import AddLinkCommandButton from '~/components/MenuCommands/AddLinkCommandButton.vue'
+
 const props = defineProps<{ editor?: Editor }>()
 function handleOpenLink() {
   if (!props.editor)

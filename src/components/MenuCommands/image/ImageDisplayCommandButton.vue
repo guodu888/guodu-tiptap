@@ -11,6 +11,7 @@ import { Tippy } from 'vue-tippy'
 import CommandButton from '../CommandButton.vue'
 import 'tippy.js/themes/light.css'
 import { ImageDisplay } from '~/extensions/nodes/image'
+
 const props = defineProps<{
   current: ImageDisplay
 }>()
@@ -29,7 +30,7 @@ const displayCollection = [
     <CommandButton icon="image-align" tooltip="布局" :command="() => tippyRef?.show()" />
     <template #content>
       <div class="w-20">
-        <div v-for="item in displayCollection" :key="item" class="w-full box-border cursor-pointer py-2 px-3" :class="{ 'color-$primary-color': props.current === item }" hover="color-$primary-color" @click="emits('change', item)">
+        <div v-for="item in displayCollection" :key="item" class="box-border w-full cursor-pointer px-3 py-2" :class="{ 'color-$primary-color': props.current === item }" hover="color-$primary-color" @click="emits('change', item)">
           {{ item }}
         </div>
       </div>

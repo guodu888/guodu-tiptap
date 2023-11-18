@@ -10,6 +10,7 @@ import type { Node as ProseMirrorNode } from 'prosemirror-model'
 import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from '../CommandButton.vue'
+
 const props = defineProps<{
   node?: ProseMirrorNode
 }>()
@@ -41,34 +42,34 @@ function handleSubmit() {
   <Tippy ref="tippyRef" :z-index="99999" trigger="manual" interactive :on-hide="handleClose" :theme="theme">
     <CommandButton icon="ellipsis-h" tooltip="图片属性" :command="() => handleShow()" />
     <template #content>
-      <div class="w-60 box-border p-2 flex flex-col items-start">
-        <p class="text-center w-full font-bold text-lg">
+      <div class="box-border w-60 flex flex-col items-start p-2">
+        <p class="w-full text-center text-lg font-bold">
           图片属性
         </p>
-        <div class="w-full flex flex-col items-start justify-center my-1">
+        <div class="my-1 w-full flex flex-col items-start justify-center">
           <p>图片地址:</p>
-          <input :value="form.src" disabled type="text" class="box-border border-1 p-1 w-full rounded">
+          <input :value="form.src" disabled type="text" class="box-border w-full border-1 rounded p-1">
         </div>
-        <div class="w-full flex flex-col items-start justify-center my-1">
+        <div class="my-1 w-full flex flex-col items-start justify-center">
           <p>图片描述:</p>
-          <input v-model="form.alt" type="text" class="box-border border-1 p-1 w-full rounded bg-transparent" :class="{ 'text-white/80': theme === 'dark' }">
+          <input v-model="form.alt" type="text" class="box-border w-full border-1 rounded bg-transparent p-1" :class="{ 'text-white/80': theme === 'dark' }">
         </div>
-        <div class="w-full flex flex-row items-start justify-center my-1">
-          <div class="flex-1 flex flex-col items-start justify-center my-1">
+        <div class="my-1 w-full flex flex-row items-start justify-center">
+          <div class="my-1 flex flex-1 flex-col items-start justify-center">
             <p>图片宽度:</p>
-            <input v-model="form.width" type="number" class="box-border border-1 p-1 w-full rounded bg-transparent" :class="{ 'text-white/80': theme === 'dark' }">
+            <input v-model="form.width" type="number" class="box-border w-full border-1 rounded bg-transparent p-1" :class="{ 'text-white/80': theme === 'dark' }">
           </div>
           <div class="w-2" />
-          <div class="flex-1 flex flex-col items-start justify-center my-1">
+          <div class="my-1 flex flex-1 flex-col items-start justify-center">
             <p>图片高度:</p>
-            <input v-model="form.height" type="number" class="box-border border-1 p-1 w-full rounded bg-transparent" :class="{ 'text-white/80': theme === 'dark' }">
+            <input v-model="form.height" type="number" class="box-border w-full border-1 rounded bg-transparent p-1" :class="{ 'text-white/80': theme === 'dark' }">
           </div>
         </div>
-        <div class="w-full flex justify-center items-center my-1">
-          <button class="btn mx-1" @click.stop="() => tippyRef.hide()">
+        <div class="my-1 w-full flex items-center justify-center">
+          <button class="mx-1 btn" @click.stop="() => tippyRef.hide()">
             取消
           </button>
-          <button class="btn mx-1" @click="handleSubmit()">
+          <button class="mx-1 btn" @click="handleSubmit()">
             确认
           </button>
         </div>

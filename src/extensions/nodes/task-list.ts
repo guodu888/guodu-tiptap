@@ -4,6 +4,7 @@ import TaskItem from '@tiptap/extension-task-item'
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default TaskList.extend<TaskListOptions & MenuOptions, any>({
   addOptions() {
     return {

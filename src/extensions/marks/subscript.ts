@@ -10,6 +10,7 @@ import Subscript from '@tiptap/extension-subscript'
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default Subscript.extend<SubscriptExtensionOptions & MenuOptions, any>({
   addOptions() {
     return {

@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import CommandButtom from './CommandButton.vue'
+
 const isFullscreen = inject('isFullscreen', false)
 const toggleFullscreen = inject<(ifFull: boolean) => void>('toggleFullscreen', () => {})
 </script>

@@ -67,13 +67,13 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-col w-40">
+  <div class="w-40 flex flex-col">
     <template v-if="items.length">
-      <div v-for="(item, index) in items" :key="index" class="flex flex-row py-2 px-2 box-border justify-between cursor-pointer" hover="color-blue" :class="{ 'color-blue': index === selectedIndex }" @click="selectItem(index)">
+      <div v-for="(item, index) in items" :key="index" class="box-border flex flex-row cursor-pointer justify-between px-2 py-2" hover="color-blue" :class="{ 'color-blue': index === selectedIndex }" @click="selectItem(index)">
         <div class="text-base">
           {{ item.title }}
         </div>
-        <div class="border-1 px-2 rounded text-sm">
+        <div class="border-1 rounded px-2 text-sm">
           {{ item.key }}
         </div>
       </div>

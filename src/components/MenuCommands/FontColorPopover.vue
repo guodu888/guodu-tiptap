@@ -12,6 +12,7 @@ import { computed, inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 
 import CommandButton from './CommandButton.vue'
+
 const props = defineProps<{ editor: Editor }>()
 const theme = inject('theme', 'light')
 const COLOR_SET = computed<string[]>(() => {
@@ -40,12 +41,12 @@ function handleShow() {
   <Tippy ref="tippyRef" :z-index="99999" trigger="manual" interactive :theme="theme">
     <CommandButton icon="font-color" tooltip="字体颜色" :command="() => handleShow()" />
     <template #content>
-      <div class="flex flex-row flex-wrap w-240px">
-        <div v-for="(x, i) in COLOR_SET" :key="i" class="items-center cursor-pointer box-border flex flex-0-0-12.5% justify-center p-5px">
-          <div :class="{ 'border-2 transform-scale-130 border-white': selectedColor === x }" class="color-shadow box-border rounded-50% box-border text-#fff h-30px w-30px duration-200 transition-all ease-in-out hover:boeder-2px hover:border-#fff hover:scale-125" :style="{ background: x }" @click="confirmColor(x)" />
+      <div class="w-240px flex flex-row flex-wrap">
+        <div v-for="(x, i) in COLOR_SET" :key="i" class="flex-0-0-12.5% box-border flex cursor-pointer items-center justify-center p-5px">
+          <div :class="{ 'border-2 transform-scale-130 border-white': selectedColor === x }" class="color-shadow hover:boeder-2px box-border box-border h-30px w-30px rounded-50% text-#fff transition-all duration-200 ease-in-out hover:scale-125 hover:border-#fff" :style="{ background: x }" @click="confirmColor(x)" />
         </div>
-        <div class="color-remove items-center cursor-pointer box-border flex flex-0-0-12.5% justify-center p-5px">
-          <div class="color-shadow relative box-border rounded-50% box-border text-#fff h-30px w-30px duration-200 transition-all ease-in-out hover:boeder-2px hover:border-#fff hover:scale-125" @click="confirmColor()" />
+        <div class="flex-0-0-12.5% color-remove box-border flex cursor-pointer items-center justify-center p-5px">
+          <div class="color-shadow hover:boeder-2px relative box-border box-border h-30px w-30px rounded-50% text-#fff transition-all duration-200 ease-in-out hover:scale-125 hover:border-#fff" @click="confirmColor()" />
         </div>
       </div>
     </template>

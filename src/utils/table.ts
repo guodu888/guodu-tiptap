@@ -6,8 +6,10 @@
  * @Description: table utils
  */
 import { mergeCells, splitCell } from 'prosemirror-tables'
+
 // import { mergeCells, splitCell } from '@tiptap/prosemirror-tables'
 import type { EditorState } from 'prosemirror-state'
+
 export function isTableActive(state: EditorState) {
   const { selection, doc } = state
   const { from, to } = selection
@@ -20,9 +22,9 @@ export function isTableActive(state: EditorState) {
     if (
       keepLooking
       && (name === 'table'
-        || name === 'table_row'
-        || name === 'table_column'
-        || name === 'table_cell')
+      || name === 'table_row'
+      || name === 'table_column'
+      || name === 'table_cell')
     ) {
       keepLooking = false
       active = true

@@ -12,6 +12,7 @@ import TableHeader from '@tiptap/extension-table-header'
 import type { Editor } from '@tiptap/vue-3'
 import type { MenuBtnView } from '~/typings'
 import TablePopover from '~/components/MenuCommands/TablePopover.vue'
+
 export default Table.extend({
   isolating: true,
   addOptions() {

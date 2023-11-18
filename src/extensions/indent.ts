@@ -11,7 +11,7 @@ export interface IndentOptions {
   maxIndent: number
 }
 
-const enum IndentProps {
+enum IndentProps {
   max = 7,
   min = 0,
 
@@ -151,7 +151,7 @@ const Indent = Extension.create<IndentOptions>({
             default: 0,
             parseHTML: (element) => {
               const identAttr = element.getAttribute('data-indent')
-              return (identAttr ? parseInt(identAttr, 10) : 0) || 0
+              return (identAttr ? Number.parseInt(identAttr, 10) : 0) || 0
             },
             renderHTML: (attributes) => {
               if (!attributes.indent)

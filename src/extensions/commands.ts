@@ -12,14 +12,14 @@ import { VueRenderer } from '@tiptap/vue-3'
 import { tippy } from 'vue-tippy'
 import CommandsList from '~/components/ExtensionViews/CommandsList.vue'
 
-interface CommandFuncProps { editor: Editor; range: Range }
+interface CommandFuncProps { editor: Editor, range: Range }
 interface CommandItem {
   key: string
   title: string
   command: (x: CommandFuncProps) => void
 }
 
-const suggestion: { items: (query: any) => CommandItem[] ; render: () => any } = {
+const suggestion: { items: (query: any) => CommandItem[], render: () => any } = {
   items: ({ query }: any) => {
     return [
       {
@@ -160,4 +160,3 @@ export default Extension.create({
     ]
   },
 }).configure({ suggestion })
-

@@ -1,8 +1,8 @@
 <!--
  * @Author: shaohang-shy
  * @Date: 2022-12-02 20:16:35
- * @LastEditors: shaohang-shy
- * @LastEditTime: 2022-12-06 19:26:12
+ * @LastEditors: shy1118
+ * @LastEditTime: 2023-11-18 21:53:17
  * @Description: ImageView
 -->
 <script setup lang="ts">
@@ -15,6 +15,7 @@ import { resolveImg } from '~/utils/images'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import ImageDisplayCommandButton from '~/components/MenuCommands/image/ImageDisplayCommandButton.vue'
 import EditImageCommadButton from '~/components/MenuCommands/image/EditImageCommadButton.vue'
+
 const props = defineProps(nodeViewProps)
 const theme = inject('theme', 'light')
 function clamp(val: number, min: number, max: number): number {
@@ -25,7 +26,7 @@ function clamp(val: number, min: number, max: number): number {
   return val
 }
 const resizing = ref(false)
-const enum ResizeDirection {
+enum ResizeDirection {
   TOP_LEFT = 'tl',
   TOP_RIGHT = 'tr',
   BOTTOM_LEFT = 'bl',
@@ -129,7 +130,7 @@ useResizeObserver(imageViewRef, () => {
 })
 function getMaxSize() {
   const { width } = getComputedStyle(props.editor!.view.dom)
-  maxSize.width = parseInt(width, 10)
+  maxSize.width = Number.parseInt(width, 10)
 }
 
 resolveImg(props.node.attrs.src).then((result) => {
@@ -150,7 +151,7 @@ function updateDisplay(e: string) {
 function deleteImage() {
   deleteSelection(props.editor.view.state, props.editor.view.dispatch)
 }
-function updateAttrs(e: { alt: string; height?: number | null; width?: number | null }) {
+function updateAttrs(e: { alt: string, height?: number | null, width?: number | null }) {
   props.updateAttributes({
     alt: e.alt,
     width: e.width && e.width >= 0 ? e.width : null,
@@ -160,9 +161,9 @@ function updateAttrs(e: { alt: string; height?: number | null; width?: number | 
 </script>
 
 <template>
-  <NodeViewWrapper as="span" class="inline-block my-2 max-w-full" :class="`image-view--${props.node.attrs.display}`">
+  <NodeViewWrapper as="span" class="my-2 inline-block max-w-full" :class="`image-view--${props.node.attrs.display}`">
     <Tippy ref="tippyRef" tag="div" :theme="theme" :z-index="99999" class="inline-block" trigger="manual" interactive>
-      <div ref="imageViewRef" class="h-outline clear-both inline-block max-w-full relative cursor-pointer">
+      <div ref="imageViewRef" class="h-outline relative clear-both inline-block max-w-full cursor-pointer">
         <img
           :src="props.node.attrs.src" :title="props.node.attrs.title" :alt="props.node.attrs.alt"
           :width="props.node.attrs.width" :height="props.node.attrs.height" class="m-0" @click="selectImage"

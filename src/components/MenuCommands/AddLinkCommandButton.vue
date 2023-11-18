@@ -3,7 +3,8 @@ import type { Editor } from '@tiptap/vue-3'
 import { computed, inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from './CommandButton.vue'
-const props = withDefaults(defineProps<{ editor: Editor; icon?: string; tooltip?: string; active?: boolean }>(), {
+
+const props = withDefaults(defineProps<{ editor: Editor, icon?: string, tooltip?: string, active?: boolean }>(), {
   icon: 'link',
   tooltip: '插入链接',
   active: true,
@@ -53,22 +54,22 @@ function handleClose() {
   <Tippy ref="tippyRef" :z-index="99999" trigger="manual" interactive :on-hide="handleClose" :theme="theme">
     <CommandButton :icon="props.icon" :is-active="isActive && props.active" :tooltip="props.tooltip" :command="() => handleShow()" />
     <template #content>
-      <div class="w-50 p-2 flex flex-col items-start">
-        <p class="text-center w-full font-bold text-lg leading-1">
+      <div class="w-50 flex flex-col items-start p-2">
+        <p class="w-full text-center text-lg font-bold leading-1">
           添加/修改链接
         </p>
-        <div class="flex w-full justify-center items-center my-1">
+        <div class="my-1 w-full flex items-center justify-center">
           <span class="w-4em">地址:</span>
-          <input v-model="form.href" placeholder="请输入链接地址" type="text" class="border-1 p-1 w-full rounded">
+          <input v-model="form.href" placeholder="请输入链接地址" type="text" class="w-full border-1 rounded p-1">
         </div>
-        <div class="flex w-full justify-center items-center my-1">
+        <div class="my-1 w-full flex items-center justify-center">
           <input v-model="form.openInNewTab" type="checkbox" class="mx-2">在新标签页打开
         </div>
-        <div class="w-full flex justify-center items-center my-1">
-          <button class="btn mx-1" @click.stop="() => tippyRef.hide()">
+        <div class="my-1 w-full flex items-center justify-center">
+          <button class="mx-1 btn" @click.stop="() => tippyRef.hide()">
             取消
           </button>
-          <button class="btn mx-1" @click="handleInsertLink()">
+          <button class="mx-1 btn" @click="handleInsertLink()">
             确认
           </button>
         </div>

@@ -1,8 +1,8 @@
 /*
  * @Author: shaohang-shy
  * @Date: 2022-12-02 20:08:58
- * @LastEditors: shaohang-shy
- * @LastEditTime: 2022-12-02 20:38:20
+ * @LastEditors: shy1118
+ * @LastEditTime: 2023-11-18 21:53:33
  * @Description: image
  */
 import Image from '@tiptap/extension-image'
@@ -12,7 +12,7 @@ import InsertImageCommandButton from '~/components/MenuCommands/InsertImageComma
 import ImageView from '~/components/ExtensionViews/ImageView.vue'
 import type { MenuBtnView } from '~/typings'
 
-export const enum ImageDisplay {
+export enum ImageDisplay {
   INLINE = 'inline',
   BREAK_TEXT = 'block',
   FLOAT_LEFT = 'left',
@@ -37,7 +37,7 @@ export default Image.extend({
         default: null,
         parseHTML: (element) => {
           const width = element.style.width || element.getAttribute('width') || null
-          return width == null ? null : parseInt(width, 10)
+          return width == null ? null : Number.parseInt(width, 10)
         },
         renderHTML: (attributes) => {
           return { width: attributes.width }
@@ -47,7 +47,7 @@ export default Image.extend({
         default: null,
         parseHTML: (element) => {
           const height = element.style.height || element.getAttribute('height') || null
-          return height == null ? null : parseInt(height, 10)
+          return height == null ? null : Number.parseInt(height, 10)
         },
         renderHTML: (attributes) => {
           return { height: attributes.height }

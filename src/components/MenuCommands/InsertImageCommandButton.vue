@@ -10,6 +10,7 @@ import type { Editor } from '@tiptap/vue-3'
 import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from './CommandButton.vue'
+
 const props = defineProps<{
   editor?: Editor
 }>()
@@ -37,16 +38,16 @@ function handleClose() {
       :command="() => tippyRef.show()"
     />
     <template #content>
-      <div class="w-50 p-2 flex flex-col items-start">
-        <p class="text-center w-full font-bold text-lg leading-1">
+      <div class="w-50 flex flex-col items-start p-2">
+        <p class="w-full text-center text-lg font-bold leading-1">
           插入图片
         </p>
-        <input v-model="form.src" class="border-1 p-1 my-1 w-full rounded" placeholder="请输入图片地址">
-        <div class="w-full flex justify-center items-center my-1">
-          <button class="btn mx-1" @click.stop="() => tippyRef.hide()">
+        <input v-model="form.src" class="my-1 w-full border-1 rounded p-1" placeholder="请输入图片地址">
+        <div class="my-1 w-full flex items-center justify-center">
+          <button class="mx-1 btn" @click.stop="() => tippyRef.hide()">
             Cancel
           </button>
-          <button class="btn mx-1" @click="handleInsertImage">
+          <button class="mx-1 btn" @click="handleInsertImage">
             Submit
           </button>
         </div>

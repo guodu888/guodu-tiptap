@@ -1,26 +1,47 @@
 {
   "name": "guodu-tiptap",
+  "type": "module",
   "version": "1.0.25",
   "packageManager": "pnpm@8.6.3",
   "description": "A WYSIWYG rich-text editor using tiptap",
   "author": "shy1118",
   "license": "MIT",
+  "homepage": "https://github.com/shy1118999/guodu-tiptap#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shy1118999/guodu-tiptap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shy1118999/guodu-tiptap/issues"
+  },
+  "keywords": [
+    "editor",
+    "WYSIWYG",
+    "vue3",
+    "vue",
+    "tiptap",
+    "prosemirror"
+  ],
   "main": "./lib/guodu-tiptap.umd.js",
   "module": "./lib/guodu-tiptap.mjs",
+  "types": "./lib/index.d.ts",
   "files": [
     "lib/*"
   ],
-  "types": "./lib/index.d.ts",
   "scripts": {
     "build:demo": "VITE_BUILD_TARGET=demo vite build",
     "build:lib": "vite build",
     "dev": "vite --port 5439 --host",
     "preview": "vite preview",
-    "lint": "eslint ./src && eslint ./playground",
+    "lint": "eslint ./src --fix && eslint ./playground --fix",
     "typecheck": "vue-tsc --noEmit",
     "release": "bumpp package.json --commit --push --tag && pnpm publish --access public"
   },
+  "peerDependencies": {
+    "vue": ">= 3.0.0"
+  },
   "dependencies": {
+    "@antfu/eslint-config": "^1.2.1",
     "@shy1118/mammoth": "^1.6.3",
     "@tiptap/core": "2.1.7",
     "@tiptap/extension-blockquote": "2.1.7",
@@ -30,8 +51,8 @@
     "@tiptap/extension-code": "2.1.7",
     "@tiptap/extension-code-block": "2.1.7",
     "@tiptap/extension-code-block-lowlight": "2.1.7",
-    "@tiptap/extension-collaboration": "^2.1.7",
-    "@tiptap/extension-collaboration-cursor": "^2.1.7",
+    "@tiptap/extension-collaboration": "^2.1.12",
+    "@tiptap/extension-collaboration-cursor": "^2.1.12",
     "@tiptap/extension-color": "2.1.7",
     "@tiptap/extension-document": "2.1.7",
     "@tiptap/extension-dropcursor": "2.1.7",
@@ -66,63 +87,41 @@
     "@tiptap/starter-kit": "2.1.7",
     "@tiptap/suggestion": "2.1.7",
     "@tiptap/vue-3": "2.1.7",
-    "@vueuse/core": "^10.4.1",
-    "docx-preview": "^0.1.18",
-    "highlight.js": "^11.8.0",
+    "@vueuse/core": "^10.6.1",
+    "docx-preview": "^0.1.20",
+    "highlight.js": "^11.9.0",
     "lowlight": "^2.9.0",
     "mathlive": "^0.94.8",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5",
     "vue-tippy": "6.0.0",
     "y-prosemirror": "^1.2.1",
-    "y-webrtc": "^10.2.5",
-    "yjs": "^13.6.7"
+    "y-webrtc": "^10.2.6",
+    "yjs": "^13.6.8"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.20",
-    "@shy1118/eslint-config": "^1.0.5",
+    "@iconify-json/carbon": "^1.1.21",
     "@types/node": "20.3.1",
-    "@unocss/reset": "^0.55.3",
-    "@vitejs/plugin-vue": "^4.3.4",
-    "@vue/runtime-core": "^3.3.4",
-    "@vue/test-utils": "^2.4.1",
+    "@unocss/eslint-plugin": "^0.57.5",
+    "@unocss/reset": "^0.57.5",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "@vue/runtime-core": "^3.3.8",
+    "@vue/test-utils": "^2.4.2",
     "bumpp": "^9.2.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.54.0",
     "jsdom": "^22.1.0",
-    "pnpm": "^8.7.0",
-    "sass": "^1.66.1",
+    "pnpm": "^8.10.5",
+    "sass": "^1.69.5",
     "typescript": "^5.2.2",
-    "unocss": "^0.55.3",
-    "unplugin-auto-import": "^0.16.6",
+    "unocss": "^0.57.5",
+    "unplugin-auto-import": "^0.16.7",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^4.4.9",
+    "vite": "^5.0.0",
     "vite-plugin-dts": "^2.3.0",
     "vite-plugin-libcss": "^1.1.1",
     "vite-plugin-pages": "^0.31.0",
     "vite-svg-loader": "^4.0.0",
     "vitest": "^0.21.1",
-    "vue-tsc": "^1.8.8"
-  },
-  "peerDependencies": {
-    "vue": ">= 3.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/shy1118999/guodu-tiptap/issues"
-  },
-  "homepage": "https://github.com/shy1118999/guodu-tiptap#readme",
-  "keywords": [
-    "editor",
-    "WYSIWYG",
-    "vue3",
-    "vue",
-    "tiptap",
-    "prosemirror"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shy1118999/guodu-tiptap.git"
-  },
-  "eslintConfig": {
-    "extends": "@shy1118"
+    "vue-tsc": "^1.8.22"
   }
 }

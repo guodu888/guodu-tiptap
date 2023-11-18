@@ -11,6 +11,7 @@ import type { Editor } from '@tiptap/vue-3'
 import { inject, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import CommandButton from './CommandButton.vue'
+
 const props = withDefaults(defineProps<{
   editor: Editor
   icon?: string
@@ -52,7 +53,7 @@ function handleSetLineHeight(name: string) {
     <template #content>
       <div>
         <div
-          v-for="(i, idx) in heights" :key="idx" class="py-2 px-1 cursor-pointer hover:color-blue"
+          v-for="(i, idx) in heights" :key="idx" class="cursor-pointer px-1 py-2 hover:color-blue"
           :class="{ 'color-blue': selectedHeight === i }" @click="handleSetLineHeight(i)"
         >
           <span>{{ i }}</span>

@@ -10,6 +10,7 @@ import Superscript from '@tiptap/extension-superscript'
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default Superscript.extend<SuperscriptExtensionOptions & MenuOptions, any>({
   addOptions() {
     return {

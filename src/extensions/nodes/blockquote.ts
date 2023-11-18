@@ -10,6 +10,7 @@ import Blockquote from '@tiptap/extension-blockquote'
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
+
 export default Blockquote.extend<BlockquoteOptions & MenuOptions, any>({
   addOptions() {
     return {

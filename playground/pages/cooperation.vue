@@ -11,6 +11,7 @@ import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import * as Y from 'yjs'
 import { WebrtcProvider } from 'y-webrtc'
 import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FontFamily, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, LineHeight, Link, Mathematics, OrderedList, Paragraph, Placeholder, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
+
 // A new Y document
 const ydoc = new Y.Doc()
 // Registered with a WebRTC provider
@@ -18,13 +19,44 @@ const provider = new WebrtcProvider('example-document', ydoc, {
   signaling: ['wss://signaling.yjs.dev'],
 })
 const extensions = [
-  Document.configure({ title: false }), FontFamily, LineHeight, TextAlign.configure({
+  Document.configure({ title: false }),
+  FontFamily,
+  LineHeight,
+  TextAlign.configure({
     types: ['heading', 'paragraph'],
-  }), Color, CodeBlockLowlight, Indent, Mathematics,
-  Paragraph, Image, Table, Gapcursor, Dropcursor, Focus, FormatClear, Fullscreen, CustomCommands,
-  Text, BulletList, OrderedList, TaskList, Blockquote, HorizontalRule, ImportWord,
-  History, Link.configure({ bubble: true }), Highlight.configure({ bubble: true }), Heading.configure({ levels: [1, 2, 3] }),
-  Bold.configure({ bubble: true }), Code.configure({ bubble: true }), Emphasis, Italic.configure({ bubble: true }), Strike.configure({ bubble: true }), Subscript, Superscript, Underline,
+  }),
+  Color,
+  CodeBlockLowlight,
+  Indent,
+  Mathematics,
+  Paragraph,
+  Image,
+  Table,
+  Gapcursor,
+  Dropcursor,
+  Focus,
+  FormatClear,
+  Fullscreen,
+  CustomCommands,
+  Text,
+  BulletList,
+  OrderedList,
+  TaskList,
+  Blockquote,
+  HorizontalRule,
+  ImportWord,
+  History,
+  Link.configure({ bubble: true }),
+  Highlight.configure({ bubble: true }),
+  Heading.configure({ levels: [1, 2, 3] }),
+  Bold.configure({ bubble: true }),
+  Code.configure({ bubble: true }),
+  Emphasis,
+  Italic.configure({ bubble: true }),
+  Strike.configure({ bubble: true }),
+  Subscript,
+  Superscript,
+  Underline,
   // Register the document with Tiptap
   Collaboration.configure({
     document: ydoc,
@@ -68,15 +100,15 @@ function randomId() {
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <div class="flex items-center gap-3 justify-start ">
+  <div class="mx-auto container">
+    <div class="flex items-center justify-start gap-3">
       <h2>Welcome to <code>`guodu-tiptap`</code></h2>
       <div icon-btn @click="toggleDark()">
         <div dark:i-carbon-moon i-carbon-sun />
       </div>
 
       <a
-        icon-btn i-carbon-logo-github rel="noreferrer" href="https://github.com/shy1118999/guodu-tiptap" target="_blank"
+        i-carbon-logo-github icon-btn rel="noreferrer" href="https://github.com/shy1118999/guodu-tiptap" target="_blank"
         title="GitHub"
       />
       <button @click="logEditorRef">

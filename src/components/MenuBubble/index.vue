@@ -10,6 +10,7 @@ import type { Editor } from '@tiptap/vue-3'
 import { BubbleMenu, isTextSelection } from '@tiptap/vue-3'
 import { computed, inject, ref } from 'vue'
 import { AllSelection, TextSelection } from 'prosemirror-state'
+
 // import { CellSelection } from '@tiptap/prosemirror-tables'
 import { CellSelection } from 'prosemirror-tables'
 import LinkBubbleMenu from './LinkBubbleMenu.vue'
@@ -27,7 +28,7 @@ const isTable = computed(() => (!props.editor) ? false : props.editor.state.sele
 const isText = computed(() => (!props.editor)
   ? false
   : (props.editor.state.selection instanceof TextSelection
-        || props.editor.state.selection instanceof AllSelection))
+  || props.editor.state.selection instanceof AllSelection))
 
 function generateCommandButtonComponentSpecs(): MenuBtnView[] {
   if (!props.editor)
@@ -67,7 +68,7 @@ function isShouldShow({ state, from, to }: any) {
   const { doc, selection } = state
   const { empty } = selection
   const isEmptyTextBlock = !doc.textBetween(from, to).length
-      && isTextSelection(state.selection)
+    && isTextSelection(state.selection)
   if (empty || isEmptyTextBlock)
     return false
   return (isTable.value || isText.value || isLink.value)

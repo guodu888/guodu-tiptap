@@ -9,6 +9,7 @@
 import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import { enableMergeCells, enableSplitCell } from '~/utils/table'
+
 const props = defineProps<{ editor?: Editor }>()
 function handleAddCol(type = 'before') {
   if (type === 'before')

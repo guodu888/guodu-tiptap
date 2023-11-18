@@ -13,7 +13,7 @@ function goHome() {
 </script>
 
 <template>
-  <div class="w-full text-center py-20">
-    Not Found <span class="color-blue cursor-pointer" @click="goHome">Back Home</span>
+  <div class="w-full py-20 text-center">
+    Not Found <span class="cursor-pointer color-blue" @click="goHome">Back Home</span>
   </div>
 </template>
