@@ -1,4 +1,5 @@
-import path from 'path'
+import path from 'node:path'
+import process from 'node:process'
 import { defineConfig, loadEnv } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
