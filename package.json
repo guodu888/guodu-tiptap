@@ -33,7 +33,8 @@
     "build:lib": "vite build",
     "dev": "vite --port 5439 --host",
     "preview": "vite preview",
-    "lint": "eslint ./src --fix && eslint ./playground --fix",
+    "lint": "eslint .",
+    "format": "eslint --fix .",
     "typecheck": "vue-tsc --noEmit",
     "release": "bumpp package.json --commit --push --tag && pnpm publish --access public"
   },
