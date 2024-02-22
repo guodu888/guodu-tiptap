@@ -36,7 +36,7 @@ export interface ImageRead {
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
-    'importWord': {
+    importWord: {
       importWord: (editor: Editor) => ReturnType
     }
   }
