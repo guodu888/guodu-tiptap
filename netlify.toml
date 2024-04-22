@@ -1,12 +1,12 @@
-[build.environment]
-  NPM_FLAGS = "--prefix=/dev/null"
-  NODE_VERSION = "18"
-
 [build]
-  publish = "dist"
-  command = "npx pnpm i --no-frozen-lockfile && npx pnpm run build:demo"
+publish = "dist"
+command = "npx pnpm i --no-frozen-lockfile && npx pnpm run build:demo"
+
+[build.environment]
+NPM_FLAGS = "--prefix=/dev/null"
+NODE_VERSION = "18"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200

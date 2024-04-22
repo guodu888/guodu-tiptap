@@ -24,12 +24,11 @@ export default Node.create({
       },
     }
   },
+  // @ts-expect-error not care
   parseHTML() {
     return [
       {
         tag: 'span',
-        // eslint-disable-next-line ts/ban-ts-comment
-        // @ts-expect-error
         getAttrs: element => element.hasAttribute('data-katex') ?? false,
       },
     ]
