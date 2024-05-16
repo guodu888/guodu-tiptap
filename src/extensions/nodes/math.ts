@@ -2,8 +2,8 @@ import { Node } from '@tiptap/core'
 import { VueNodeViewRenderer, nodeInputRule, nodePasteRule } from '@tiptap/vue-3'
 import MathView from '~/components/ExtensionViews/MathView.vue'
 
-export const inputRegex = /(?:^|\s)((?:\$)((?:[^\$]+))(?:\$))$/
-export const pasteRegex = /(?:^|\s)((?:\$)((?:[^\$]+))(?:\$))/g
+export const inputRegex = /(?:^|\s)(\$([^$]+)\$)$/
+export const pasteRegex = /(?:^|\s)(\$([^$]+)\$)/g
 
 export default Node.create({
   name: 'math',
