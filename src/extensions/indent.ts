@@ -99,7 +99,8 @@ function createIndentCommand({
     tr = updateIndentLevel(tr, delta, types, editor)
 
     if (tr.docChanged) {
-      dispatch && dispatch(tr)
+      if (dispatch)
+        dispatch(tr)
       return true
     }
 

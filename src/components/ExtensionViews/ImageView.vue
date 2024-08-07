@@ -143,7 +143,10 @@ resolveImg(props.node.attrs.src).then((result) => {
 })
 const tippyRef = ref()
 watchEffect(() => {
-  props.selected ? tippyRef.value?.show() : tippyRef.value?.hide()
+  if (props.selected)
+    tippyRef.value?.show()
+  else
+    tippyRef.value?.hide()
 })
 function updateDisplay(e: string) {
   props.updateAttributes?.({ display: e })

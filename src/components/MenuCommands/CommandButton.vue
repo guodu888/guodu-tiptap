@@ -13,6 +13,7 @@ import GuoduIcon from '../GuoduIcon.vue'
 
 const props = withDefaults(
   defineProps<{
+    // eslint-disable-next-line ts/no-unsafe-function-type
     command?: Function
     isActive?: boolean
     icon: string

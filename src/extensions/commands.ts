@@ -102,7 +102,7 @@ const suggestion: { items: (query: any) => CommandItem[], render: () => any } = 
         popup = tippy('body', {
           getReferenceClientRect: props.clientRect,
           appendTo: () => document.body,
-          content: component.element,
+          content: component.element!,
           showOnCreate: true,
           interactive: true,
           trigger: 'manual',
