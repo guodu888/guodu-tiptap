@@ -33,7 +33,7 @@ function onClick() {
 <template>
   <div
     v-tippy="{ content: props.tooltip, theme }"
-    class="m-2px box-border h-40px w-40px flex cursor-pointer items-center justify-center border-1px border-transparent rounded-50% outline-0 transition-all duration-200 ease-in-out"
+    class="box-border h-40px w-40px flex cursor-pointer items-center justify-center border-1px border-transparent rounded-50% outline-0 transition-all duration-200 ease-in-out"
     :class="{ 'bg-$extra-light-primary-color text-$primary-color': props.isActive }"
     @mousedown.prevent
     @click="onClick"

@@ -83,7 +83,7 @@ function isShouldShow({ state, from, to }: any) {
     <TableBubbleMenu v-else-if="(isTable && !tableBack)" :editor="props.editor">
       <CommandButton v-if="textMenuEnable" icon="arrow-left" tooltip="更多" :command="() => tableBack = true" />
     </TableBubbleMenu>
-    <div v-else-if="(isText || isTable)" class="flex flex-row">
+    <div v-else-if="(isText || isTable)" class="flex flex-row flex-wrap">
       <component
         :is="spec.component" v-for="(spec, i) in generateCommandButtonComponentSpecs()"
         :key="`command-button${i}`" v-bind="spec.componentProps"
