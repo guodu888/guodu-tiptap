@@ -3,6 +3,7 @@ import type { Command, Editor } from '@tiptap/core'
 import type { Transaction } from 'prosemirror-state'
 import { AllSelection, TextSelection } from 'prosemirror-state'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
+import type { MenuOptions } from '~/typings'
 import { clamp } from '~/utils'
 
 export interface IndentOptions {
@@ -108,7 +109,7 @@ function createIndentCommand({
   }
 }
 
-const Indent = Extension.create<IndentOptions>({
+const Indent = Extension.create<IndentOptions & MenuOptions>({
   name: 'indent',
 
   addOptions() {

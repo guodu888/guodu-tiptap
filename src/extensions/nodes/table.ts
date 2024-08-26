@@ -10,10 +10,10 @@ import TableRow from '@tiptap/extension-table-row'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
 import TablePopover from '~/components/MenuCommands/TablePopover.vue'
 
-export default Table.extend({
+export default Table.extend<MenuOptions>({
   isolating: true,
   addOptions() {
     return {

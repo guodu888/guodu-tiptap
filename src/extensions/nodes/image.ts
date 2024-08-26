@@ -10,7 +10,7 @@ import type { Editor } from '@tiptap/vue-3'
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
 import InsertImageCommandButton from '~/components/MenuCommands/InsertImageCommandButton.vue'
 import ImageView from '~/components/ExtensionViews/ImageView.vue'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
 
 export enum ImageDisplay {
   INLINE = 'inline',
@@ -22,7 +22,7 @@ export enum ImageDisplay {
 const DEFAULT_IMAGE_DISPLAY = ImageDisplay.INLINE
 export const DEFAULT_IMAGE_WIDTH = 200
 
-export default Image.extend({
+export default Image.extend<MenuOptions>({
   inline() {
     return true
   },

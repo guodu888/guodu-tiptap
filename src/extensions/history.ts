@@ -7,10 +7,10 @@
  */
 import History from '@tiptap/extension-history'
 import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView } from '~/typings'
+import type { MenuBtnView, MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 
-export default History.extend({
+export default History.extend<MenuOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
