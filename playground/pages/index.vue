@@ -63,6 +63,9 @@ const showLineNo = ref(false)
 function importWord() {
   editorRef.value.editor.commands.importWord(editorRef.value.editor)
 }
+
+const showMenuBar = ref(true)
+const showBubble = ref(true)
 </script>
 
 <template>
@@ -83,11 +86,17 @@ function importWord() {
       <button @click="showLineNo = !showLineNo">
         显示/隐藏行号
       </button>
+      <button @click="showMenuBar = !showMenuBar">
+        显示/隐藏 MenuBar
+      </button>
+      <button @click="showBubble = !showBubble">
+        显示/隐藏 Bubble
+      </button>
       <button @click="importWord">
         import word
       </button>
     </div>
-    <GuoduTiptap ref="editorRef" v-model:content="content" :show-line-no="showLineNo" :extensions="extensions" :theme="theme" />
+    <GuoduTiptap ref="editorRef" v-model:content="content" :show-menu-bar="showMenuBar" :show-bubble="showBubble" :show-line-no="showLineNo" :extensions="extensions" :theme="theme" />
   </div>
 </template>
 

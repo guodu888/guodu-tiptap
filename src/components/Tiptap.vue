@@ -8,10 +8,14 @@ const props = withDefaults(defineProps<{
   content?: string
   theme?: 'light' | 'dark'
   showLineNo?: boolean
+  showMenuBar?: boolean
+  showBubble?: boolean
 }>(), {
   content: '',
   theme: 'light',
   showLineNo: false,
+  showMenuBar: true,
+  showBubble: true,
 })
 const emits = defineEmits(['update:content'])
 
@@ -60,8 +64,8 @@ provide('toggleFullscreen', toggleFullscreen)
     class="guodu-tiptap-editor relative box-border max-h-100% w-100% flex flex-col border-1 border-#ebeef5 rounded-8px border-solid"
     :class="{ 'guodu-tiptap-editor-dark': props.theme === 'dark', 'guodu-tiptap-editor-fullscreen': isFullscreen, 'guodu-tiptap-line-no': props.showLineNo }"
   >
-    <MenuBar :editor="editor" />
-    <MenuBubble :editor="editor" />
+    <MenuBar v-if="props.showMenuBar" :editor="editor" />
+    <MenuBubble v-if="props.showBubble" :editor="editor" />
     <EditorContent
       :editor="editor"
       class="edit-content box-border flex-grow overflow-auto overflow-unset p-15px text-left leading-7"
