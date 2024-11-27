@@ -6,8 +6,9 @@
  * @Description: image
  */
 import Image from '@tiptap/extension-image'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor, NodeViewProps } from '@tiptap/vue-3'
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
+import type { Component } from 'vue'
 import InsertImageCommandButton from '~/components/MenuCommands/InsertImageCommandButton.vue'
 import ImageView from '~/components/ExtensionViews/ImageView.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
@@ -93,7 +94,7 @@ export default Image.extend<MenuOptions>({
   },
 
   addNodeView() {
-    return VueNodeViewRenderer(ImageView)
+    return VueNodeViewRenderer(ImageView as Component<NodeViewProps>)
   },
 
   parseHTML() {

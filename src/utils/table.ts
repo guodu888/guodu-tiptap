@@ -22,9 +22,9 @@ export function isTableActive(state: EditorState) {
     if (
       keepLooking
       && (name === 'table'
-      || name === 'table_row'
-      || name === 'table_column'
-      || name === 'table_cell')
+        || name === 'table_row'
+        || name === 'table_column'
+        || name === 'table_cell')
     ) {
       keepLooking = false
       active = true

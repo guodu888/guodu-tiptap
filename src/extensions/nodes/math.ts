@@ -1,5 +1,7 @@
+import type { NodeViewProps } from '@tiptap/core'
 import { Node } from '@tiptap/core'
 import { VueNodeViewRenderer, nodeInputRule, nodePasteRule } from '@tiptap/vue-3'
+import type { Component } from 'vue'
 import MathView from '~/components/ExtensionViews/MathView.vue'
 
 export const inputRegex = /(?:^|\s)(\$([^$]+)\$)$/
@@ -39,7 +41,7 @@ export default Node.create({
   },
 
   addNodeView() {
-    return VueNodeViewRenderer(MathView)
+    return VueNodeViewRenderer(MathView as Component<NodeViewProps>)
   },
 
   addInputRules() {

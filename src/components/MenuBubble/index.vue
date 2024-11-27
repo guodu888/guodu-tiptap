@@ -28,7 +28,7 @@ const isTable = computed(() => (!props.editor) ? false : props.editor.state.sele
 const isText = computed(() => (!props.editor)
   ? false
   : (props.editor.state.selection instanceof TextSelection
-  || props.editor.state.selection instanceof AllSelection))
+    || props.editor.state.selection instanceof AllSelection))
 
 function generateCommandButtonComponentSpecs(): MenuBtnView[] {
   if (!props.editor)
