@@ -25,6 +25,13 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
         'guodu-tiptap': `${path.resolve(__dirname, 'src')}/index.ts`,
       },
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern"
+        },
+      },
+    },
     plugins: [
       Vue({
         template: {
