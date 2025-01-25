@@ -74,9 +74,9 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
       IS_DEMO
         ? null
         : dts({
-          include: ['src'],
-          insertTypesEntry: true,
-        }),
+            include: ['src'],
+            insertTypesEntry: true,
+          }),
     ],
     build: IS_DEMO
       ? undefined
