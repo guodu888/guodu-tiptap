@@ -5,16 +5,16 @@
  * @LastEditTime: 2022-11-30 19:34:23
  * @Description: history
  */
-import History from '@tiptap/extension-history'
-import type { Editor } from '@tiptap/vue-3'
+import { UndoRedo } from '@tiptap/extensions'
+import type { AnyExtension, Editor } from '@tiptap/core'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 
-export default History.extend<MenuOptions>({
+export default UndoRedo.extend<MenuOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView[] {
+      menuBtnView({ editor }: { editor: Editor, extension?: AnyExtension }): MenuBtnView | MenuBtnView[] {
         return [
           {
             component: CommandButton,

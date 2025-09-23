@@ -7,16 +7,16 @@
  */
 import type { CodeOptions } from '@tiptap/extension-code'
 import Code from '@tiptap/extension-code'
-import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default Code.extend<CodeOptions & MenuOptions, any>({
   exitable: true,
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

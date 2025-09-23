@@ -45,7 +45,7 @@ function handleSplitCells() {
 </script>
 
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row rounded-xl bg-white shadow-md dark:bg-black">
     <CommandButton icon="insert-left" tooltip="向左插入一列" :command="() => handleAddCol('before')" />
     <CommandButton icon="insert-right" tooltip="向右插入一列" :command="() => handleAddCol('after')" />
     <CommandButton icon="delete-column" tooltip="删除列" :command="() => handleDeleteCol()" />

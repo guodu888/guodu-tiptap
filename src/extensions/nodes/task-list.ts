@@ -1,15 +1,15 @@
-import type { TaskListOptions } from '@tiptap/extension-task-list'
-import TaskList from '@tiptap/extension-task-list'
-import TaskItem from '@tiptap/extension-task-item'
-import type { Editor } from '@tiptap/vue-3'
+import type { TaskListOptions } from '@tiptap/extension-list'
+import { TaskItem, TaskList } from '@tiptap/extension-list'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default TaskList.extend<TaskListOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      itemTypeName: 'taskItem',
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

@@ -30,7 +30,7 @@ function handleCanvelLink() {
 </script>
 
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row rounded-xl bg-white shadow-md dark:bg-black">
     <CommandButton icon="external-link" tooltip="打开链接" :command="handleOpenLink" />
     <!-- <CommandButton icon="edit" tooltip="编辑链接" /> -->
     <AddLinkCommandButton v-if="props.editor" icon="edit" :editor="props.editor" tooltip="编辑链接" :active="false" />

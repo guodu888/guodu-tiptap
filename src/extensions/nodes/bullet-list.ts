@@ -1,6 +1,6 @@
-import type { BulletListOptions } from '@tiptap/extension-bullet-list'
-import BulletList from '@tiptap/extension-bullet-list'
-import type { Editor } from '@tiptap/vue-3'
+import type { BulletListOptions } from '@tiptap/extension-list'
+import { BulletList } from '@tiptap/extension-list'
+import type { Editor } from '@tiptap/core'
 import ListItem from './list-item'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
@@ -9,6 +9,10 @@ export default BulletList.extend<BulletListOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      itemTypeName: 'listItem',
+      keepMarks: false,
+      keepAttributes: false,
       menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
         return {
           component: CommandButton,

@@ -7,8 +7,10 @@
 -->
 <script setup lang="ts">
 import type { Editor } from '@tiptap/vue-3'
-import { BubbleMenu, isTextSelection } from '@tiptap/vue-3'
-import { computed, inject, ref } from 'vue'
+import { isTextSelection } from '@tiptap/vue-3'
+// @ts-expect-error no types
+import { BubbleMenu } from '@tiptap/vue-3/menus'
+import { computed, ref } from 'vue'
 import { AllSelection, TextSelection } from 'prosemirror-state'
 
 // import { CellSelection } from '@tiptap/prosemirror-tables'
@@ -22,7 +24,7 @@ import 'tippy.js/themes/light.css'
 const props = defineProps<{
   editor?: Editor
 }>()
-const theme = inject('theme', 'light')
+// const theme = inject('theme', 'light')
 const isLink = computed(() => (!props.editor) ? false : props.editor.isActive('link'))
 const isTable = computed(() => (!props.editor) ? false : props.editor.state.selection instanceof CellSelection)
 const isText = computed(() => (!props.editor)
@@ -76,14 +78,14 @@ function isShouldShow({ state, from, to }: any) {
 </script>
 
 <template>
-  <BubbleMenu v-if="props.editor" :editor="props.editor" :tippy-options="{ duration: 100, theme }" :should-show="isShouldShow" :update-delay="1">
+  <BubbleMenu v-if="props.editor" :editor="props.editor" :should-show="isShouldShow" :update-delay="1">
     <LinkBubbleMenu v-if="(isLink && !linkBack)" :editor="props.editor">
       <CommandButton v-if="textMenuEnable" icon="arrow-left" tooltip="更多" :command="() => linkBack = true" />
     </LinkBubbleMenu>
     <TableBubbleMenu v-else-if="(isTable && !tableBack)" :editor="props.editor">
       <CommandButton v-if="textMenuEnable" icon="arrow-left" tooltip="更多" :command="() => tableBack = true" />
     </TableBubbleMenu>
-    <div v-else-if="(isText || isTable)" class="flex flex-row flex-wrap">
+    <div v-else-if="(isText || isTable)" class="flex flex-row flex-wrap rounded-xl bg-white shadow-md dark:bg-black">
       <component
         :is="spec.component" v-for="(spec, i) in generateCommandButtonComponentSpecs()"
         :key="`command-button${i}`" v-bind="spec.componentProps"

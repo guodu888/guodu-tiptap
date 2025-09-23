@@ -1,3 +1,3 @@
-import Focus from '@tiptap/extension-focus'
+import { Focus } from '@tiptap/extensions'
 
 export default Focus.configure({ mode: 'deepest' })

@@ -1,3 +1,3 @@
-import Gapcursor from '@tiptap/extension-gapcursor'
+import { Gapcursor } from '@tiptap/extensions'
 
 export default Gapcursor

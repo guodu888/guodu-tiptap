@@ -6,9 +6,8 @@
  * @Description: emphasis
  */
 import { Mark } from '@tiptap/core'
-import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export interface EmphasisOptions {
   HTMLAttributes: Record<string, any>
@@ -38,7 +37,7 @@ const Emphasis = Mark.create<EmphasisOptions & MenuOptions>({
   addOptions() {
     return {
       HTMLAttributes: {},
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

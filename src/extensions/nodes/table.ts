@@ -5,12 +5,8 @@
  * @LastEditTime: 2022-12-03 15:44:19
  * @Description: table
  */
-import Table from '@tiptap/extension-table'
-import TableRow from '@tiptap/extension-table-row'
-import TableCell from '@tiptap/extension-table-cell'
-import TableHeader from '@tiptap/extension-table-header'
-import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import { Table, TableCell, TableHeader, TableRow } from '@tiptap/extension-table'
+import type { MenuOptions } from '~/typings'
 import TablePopover from '~/components/MenuCommands/TablePopover.vue'
 
 export default Table.extend<MenuOptions>({
@@ -19,7 +15,7 @@ export default Table.extend<MenuOptions>({
     return {
       ...this.parent?.(),
       multicolor: true,
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      menuBtnView({ editor }) {
         return {
           component: TablePopover,
           componentProps: {

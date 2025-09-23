@@ -1,14 +1,14 @@
 import type { HorizontalRuleOptions } from '@tiptap/extension-horizontal-rule'
 import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import type { Editor } from '@tiptap/vue-3'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default HorizontalRule.extend<HorizontalRuleOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

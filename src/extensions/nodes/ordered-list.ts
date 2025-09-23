@@ -1,15 +1,18 @@
-import type { OrderedListOptions } from '@tiptap/extension-ordered-list'
-import OrderedList from '@tiptap/extension-ordered-list'
-import type { Editor } from '@tiptap/vue-3'
+import type { OrderedListOptions } from '@tiptap/extension-list'
+import { OrderedList } from '@tiptap/extension-list'
 import ListItem from './list-item'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default OrderedList.extend<OrderedListOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      itemTypeName: 'listItem',
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      keepMarks: false,
+      keepAttributes: false,
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

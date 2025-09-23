@@ -7,7 +7,7 @@
  */
 import type { StrikeOptions } from '@tiptap/extension-strike'
 import Strike from '@tiptap/extension-strike'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 
@@ -15,6 +15,7 @@ export default Strike.extend<StrikeOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
       menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
         return {
           component: CommandButton,

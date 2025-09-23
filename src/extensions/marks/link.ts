@@ -7,18 +7,17 @@
  */
 import type { LinkOptions } from '@tiptap/extension-link'
 import { Link } from '@tiptap/extension-link'
-import type { Editor } from '@tiptap/vue-3'
 import { getMarkRange } from '@tiptap/core'
 import { Plugin, PluginKey, TextSelection } from 'prosemirror-state'
 import type { EditorView } from 'prosemirror-view'
 import AddLinkCommandButton from '~/components/MenuCommands/AddLinkCommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default Link.extend<LinkOptions & MenuOptions, any>({
   addOptions() {
     return {
-      ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      ...this.parent?.() as LinkOptions,
+      menuBtnView({ editor }) {
         return {
           component: AddLinkCommandButton,
           componentProps: {

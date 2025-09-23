@@ -1,5 +1,5 @@
 import { Extension } from '@tiptap/core'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import LineHeightCommandButtonVue from '~/components/MenuCommands/LineHeightCommandButton.vue'
 

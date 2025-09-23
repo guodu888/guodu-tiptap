@@ -7,7 +7,7 @@
  */
 import type { HighlightOptions } from '@tiptap/extension-highlight'
 import Highlight from '@tiptap/extension-highlight'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import HighlightPopover from '~/components/MenuCommands/HighlightPopover.vue'
 
@@ -18,6 +18,7 @@ export default Highlight.extend<HighlightOptions & MenuOptions, any>({
       ...this.parent?.(),
       multicolor: true,
       colors: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#000000'],
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
       menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
         return {
           component: HighlightPopover,

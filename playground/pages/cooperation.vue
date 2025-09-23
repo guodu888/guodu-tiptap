@@ -7,7 +7,7 @@
 -->
 <script setup lang="ts">
 import Collaboration from '@tiptap/extension-collaboration'
-import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
+import CollaborationCaret from '@tiptap/extension-collaboration-caret'
 import * as Y from 'yjs'
 import { WebrtcProvider } from 'y-webrtc'
 import { Blockquote, Bold, BulletList, Code, CodeBlockLowlight, Color, CustomCommands, Document, Dropcursor, Emphasis, Focus, FontFamily, FormatClear, Fullscreen, Gapcursor, GuoduTiptap, Heading, Highlight, History, HorizontalRule, Image, ImportWord, Indent, Italic, LineHeight, Link, Mathematics, OrderedList, Paragraph, Placeholder, Strike, Subscript, Superscript, Table, TaskList, Text, TextAlign, Underline } from '~/index'
@@ -64,7 +64,7 @@ const extensions = [
   Placeholder.configure({
     placeholder: '开始协作编辑',
   }),
-  CollaborationCursor.configure({
+  CollaborationCaret.configure({
     provider,
     user: {
       name: randomId(),

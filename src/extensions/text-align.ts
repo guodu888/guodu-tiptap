@@ -7,8 +7,7 @@
  */
 import type { TextAlignOptions } from '@tiptap/extension-text-align'
 import TextAlign from '@tiptap/extension-text-align'
-import type { Editor, Extension } from '@tiptap/vue-3'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 
 // export default TextAlign
@@ -22,8 +21,11 @@ export default TextAlign.extend<TextAlignOptions & MenuOptions, any>({
     }
     return {
       ...this.parent?.(),
-      menuBtnView({ editor, extension }: { editor: Editor, extension: Extension }): MenuBtnView[] {
-        const { alignments } = extension.options
+      types: [],
+      alignments: ['left', 'center', 'right', 'justify'],
+      defaultAlignment: null,
+      menuBtnView({ editor, extension }) {
+        const { alignments } = extension?.options
         return alignments.map((x: string): any => {
           const info: any = alignMap[x]
           if (info) {

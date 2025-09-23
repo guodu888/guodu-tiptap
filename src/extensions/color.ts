@@ -6,9 +6,9 @@
  * @Description:
  */
 import type { ColorOptions } from '@tiptap/extension-color'
-import TextStyle from '@tiptap/extension-text-style'
+import { TextStyle } from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 import FontColorPopover from '~/components/MenuCommands/FontColorPopover.vue'
 
@@ -16,6 +16,7 @@ export default Color.extend<ColorOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
+      types: ['textStyle'],
       multicolor: true,
       colors: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#000000'],
       menuBtnView({ editor }: { editor: Editor }): MenuBtnView {

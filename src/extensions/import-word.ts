@@ -7,13 +7,13 @@
  */
 import type { Buffer } from 'node:buffer'
 import { Extension } from '@tiptap/core'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 
 // eslint-disable-next-line ts/ban-ts-comment
 // @ts-expect-error
 import mammoth from '@shy1118/mammoth/mammoth.browser.js'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export interface ImportWordOptions {
   uploadImage: (image: MammothImage) => Promise<{ src: string }>
@@ -68,7 +68,7 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
       },
       uploadCallback: () => {},
       htmlParser: (html: string) => html.replace(/&amp;nbsp;/g, '&nbsp;'),
-      menuBtnView({ editor }: { editor: Editor, extension: Extension<ImportWordOptions, any> }): MenuBtnView {
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {
@@ -116,7 +116,7 @@ export default Extension.create<ImportWordOptions & MenuOptions, any>({
               .convertToHtml({ arrayBuffer }, options)
               .then((e: any) => {
                 const v = this.options.htmlParser(e.value)
-                editor.commands.setContent(v, true)
+                editor.commands.setContent(v, { emitUpdate: true })
               })
               .done()
           }

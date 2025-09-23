@@ -6,12 +6,12 @@
  * @Description: image
  */
 import Image from '@tiptap/extension-image'
-import type { Editor, NodeViewProps } from '@tiptap/vue-3'
+import type { NodeViewProps } from '@tiptap/vue-3'
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
 import type { Component } from 'vue'
 import InsertImageCommandButton from '~/components/MenuCommands/InsertImageCommandButton.vue'
 import ImageView from '~/components/ExtensionViews/ImageView.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export enum ImageDisplay {
   INLINE = 'inline',
@@ -82,7 +82,7 @@ export default Image.extend<MenuOptions>({
     return {
       ...this.parent?.(),
       inline: true,
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      menuBtnView({ editor }) {
         return {
           component: InsertImageCommandButton,
           componentProps: {

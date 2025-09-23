@@ -1,14 +1,14 @@
 import type { BoldOptions } from '@tiptap/extension-bold'
 import Bold from '@tiptap/extension-bold'
-import type { Editor } from '@tiptap/vue-3'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 
-export default Bold.extend<BoldOptions & MenuOptions, any>({
+export default Bold.extend<BoldOptions & MenuOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

@@ -7,7 +7,7 @@
  */
 import type { BlockquoteOptions } from '@tiptap/extension-blockquote'
 import Blockquote from '@tiptap/extension-blockquote'
-import type { Editor } from '@tiptap/vue-3'
+import type { Editor } from '@tiptap/core'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
 import type { MenuBtnView, MenuOptions } from '~/typings'
 
@@ -15,6 +15,7 @@ export default Blockquote.extend<BlockquoteOptions & MenuOptions, any>({
   addOptions() {
     return {
       ...this.parent?.(),
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
       menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
         return {
           component: CommandButton,

@@ -7,14 +7,13 @@
  */
 import type { CodeBlockLowlightOptions } from '@tiptap/extension-code-block-lowlight'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
-import type { Editor } from '@tiptap/vue-3'
 import { lowlight } from 'lowlight/lib/core'
 import css from 'highlight.js/lib/languages/css'
 import js from 'highlight.js/lib/languages/javascript'
 import ts from 'highlight.js/lib/languages/typescript'
 import html from 'highlight.js/lib/languages/xml'
 import CommandButton from '~/components/MenuCommands/CommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 lowlight.registerLanguage('html', html)
 lowlight.registerLanguage('css', css)
@@ -25,7 +24,15 @@ export default CodeBlockLowlight.extend<CodeBlockLowlightOptions & MenuOptions, 
   addOptions() {
     return {
       ...this.parent?.(),
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      lowlight: {},
+      languageClassPrefix: 'language-',
+      exitOnTripleEnter: true,
+      exitOnArrowDown: true,
+      defaultLanguage: null,
+      enableTabIndentation: false,
+      tabSize: 4,
+      HTMLAttributes: {}, // ✅ 必须有，至少给个空对象
+      menuBtnView({ editor }) {
         return {
           component: CommandButton,
           componentProps: {

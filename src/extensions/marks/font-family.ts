@@ -1,15 +1,15 @@
 import FontFamily from '@tiptap/extension-font-family'
 import type { FontFamilyOptions } from '@tiptap/extension-font-family'
-import type { Editor } from '@tiptap/vue-3'
 import FontFamilyCommandButtonVue from '~/components/MenuCommands/FontFamilyCommandButton.vue'
-import type { MenuBtnView, MenuOptions } from '~/typings'
+import type { MenuOptions } from '~/typings'
 
 export default FontFamily.extend<FontFamilyOptions & MenuOptions & { fontFamilys: string[] }, any>({
   addOptions() {
     return {
       ...this.parent?.(),
+      types: ['textStyle'],
       fontFamilys: ['楷体', '宋体'],
-      menuBtnView({ editor }: { editor: Editor }): MenuBtnView {
+      menuBtnView({ editor }) {
         return {
           component: FontFamilyCommandButtonVue,
           componentProps: {

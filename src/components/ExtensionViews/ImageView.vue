@@ -39,7 +39,9 @@ const resizeDirections = [
   ResizeDirection.BOTTOM_RIGHT,
 ]
 function selectImage() {
-  props.editor?.commands.setNodeSelection(props.getPos!())
+  const pos = props?.getPos()
+  if (pos)
+    props.editor?.commands.setNodeSelection(pos)
 }
 const originalSize = { width: 0, height: 0 }
 const resizerState = { x: 0, y: 0, w: 0, h: 0, dir: '' }
